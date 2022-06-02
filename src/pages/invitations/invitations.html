@@ -1,0 +1,33 @@
+<ion-content>
+    
+   <custom-header [header]="header_data"></custom-header>
+   
+  <div class="b-header">
+     <img src="assets/img/icons/messages.png">
+  </div>
+
+  <ion-list no-lines>
+    <ion-item-sliding *ngFor="let u of users" (swipe)="delete(u.invitation_id)">
+      <ion-item (click)="u.invitation_status==2?'':OpenInvitation(u);">
+        <ion-avatar class="avatar" item-left item-content>
+          <img [src]="service.Link(u.image_path)" *ngIf="u.image_path">
+          <img src="./assets/img/anonymousUser.png" *ngIf="!u.image_path">
+        </ion-avatar>
+        <h2>{{u.firstname}}</h2>
+        <p>{{u.property_address}} {{u.property_pincode}}</p>
+        <button class="accept" item-content (click)="AcceptInvitation(u.invitation_id)" *ngIf="u.invitation_status==2">
+          Accept
+        </button>
+      </ion-item> 
+      <ion-item-options side="right" class="option">
+        <button ion-button expandable color="danger" (click)="delete(u.invitation_id)">
+           Swipe left<br> to delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding> 
+    <ion-item *ngIf="!users.length" text-center>
+        You have no invitation yet.
+    </ion-item> 
+  </ion-list> 
+  
+</ion-content>

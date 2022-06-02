@@ -1,0 +1,66 @@
+page-invitations
+{
+  .b-header
+  {
+    padding: 20px 30px;
+    position: relative;
+    img
+    {
+      display: block;
+      width: 80px;
+      margin: 40px auto;
+    }
+  }
+  .list 
+  {
+    margin-bottom: 0;
+    .item
+    {
+      background-color: #fff;
+      border-bottom: 1px solid #dadada !important;
+      height: 84px;
+      .avatar
+      {
+          margin: 8px 0px 8px 10px;
+          img
+          {
+            width: 55px;
+            height: 55px;
+          } 
+      }
+      h2
+      {
+          color: #080043;
+          letter-spacing: 0.2px;
+          font-size: 18px;
+          max-width: 163px;
+          display: block;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+      }
+      p
+      {
+          width: 211px;
+          white-space: initial;
+          height: 40px;
+      }
+      .accept
+      {
+        color: #fff;
+        background-color: #0f97b0;
+        height: 30px;
+        padding: 0 10px;
+      }
+    }  
+    .option
+    {
+      .button
+      {
+        text-transform: none;
+        line-height: 18px;
+        font-weight: 300;
+      }
+    }
+  }
+}

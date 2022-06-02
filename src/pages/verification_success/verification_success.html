@@ -1,0 +1,42 @@
+
+
+<ion-content>
+
+  <ion-header class="header2">
+    <ion-navbar>
+      <ion-title>
+        {{property.property.property_name}}
+       <!-- <button ion-button="bar-button" navPop class="icb btn-back pull-left" left><img width="25" src="assets/img/icons/back-arrow@3x.png"></button>-->
+        <button ion-button="bar-button" menuToggle class="icb btn-menu block" float-right><img src="assets/img/icons/if-menu-926652@2x.png"></button>
+
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <div class="page-title">
+    <h1>{{property.property.property_name}}</h1>
+    <p>{{property.property.property_address}}<br> {{property.property.property_city}}</p>
+  </div>
+
+  <div class="head-images">
+    <ion-slides class="user-images-slider" pager="false" slidesPerView="3" loop>
+      <ion-slide *ngFor="let item of property.image">
+        <img src="{{config.url}}{{item.image_path}}"/>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="icon-check">
+    <img src="assets/img/pages/my-properties/shape@2x.png">
+  </div>
+
+  <div class="page-content" *ngIf="verification_message">
+    {{verification_message}}
+  </div>
+<div class="page-content" *ngIf="!verification_message">
+  Invite has been sent to the tenant/s
+  successfully. Please wait till the invite has been accepted
+</div>
+
+
+</ion-content>

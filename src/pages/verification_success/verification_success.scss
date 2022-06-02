@@ -1,0 +1,48 @@
+page-my-properties
+{
+  .page-title
+  {
+    padding: 20px 20px 1px 20px;
+    background-color:#544c1e;
+    color: #fff;
+    h1
+    {
+      font-weight: 300;
+      margin-top: 0;
+      font-size: 23px;
+    }
+  }
+  .head-images
+  {
+    box-shadow: 0 5px 17px rgba(0, 0, 0, 0.44);
+    table {
+      tr td:first-child img {
+        border-right: 0px solid #fff;
+      }
+      tr td:nth-child(2) {
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
+      }
+      tr td:last-child img {
+        border-left: 0px solid #fff;
+      }
+    }
+    img
+    {
+      display: block;
+    }
+  }
+  .icon-check
+  {
+    text-align: center;
+    margin: 90px 0 40px;
+  }
+  .page-content {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #080043;
+    padding: 0 20px;
+  }
+}

@@ -1,0 +1,52 @@
+
+
+<ion-content>
+
+  <custom-header [header]="header_data"></custom-header>
+  <div class="page-title">
+    <h1>{{property.property.property_name}}</h1>
+    <p>{{property.property.property_address}}<br>{{property.property.property_city}}</p>
+  </div>
+
+  <div class="head-images">
+    <ion-slides class="user-images-slider" pager="false" slidesPerView="3" loop>
+      <ion-slide *ngFor="let item of property.image">
+        <img src="{{config.url}}{{item.image_path}}"/>
+      </ion-slide>
+    </ion-slides>
+  </div>
+      <h4 class="page-title-sub">Add Tenant</h4>
+
+  <div class="page-content">
+    Please search your tenant with the email or mobile number.
+    If the tenant does not exists on our platform, we will invite him/her on your behalf.
+  </div>
+
+  <div class="div-form">
+
+    <div class="inps">
+<ion-list>
+
+  <div class="relative" *ngFor="let item of names; let last=last; let index=index" >
+    <button class="icb plus" item-right item-right  *ngIf="last" item-right (click)="setRange()">
+      <img src="assets/img/icons/plus@2x.png">
+    </button>
+    <ion-item>
+      <ion-label stacked>Tenant {{index+1}} Email/Phone Number</ion-label>
+      <ion-input [(ngModel)]="names[index].name" [placeholder]="(index/2)==0?'pqr@abc.com':1234567890" name="login" required (keyup)="searchUser(index)"></ion-input>
+      <img class="icon" item-right src="assets/img/icons/if-check-925925@2x.png" *ngIf="names[index].id>0 && names[index].name.length>3">
+      <img class="icon"  *ngIf="last" item-right src="assets/img/icons/if-add-user-925890@2x.png">
+    </ion-item>
+    <div class="not-found" *ngIf="(item.id==0 || !item.id) && names[index].name.length>3">Not found. Invite will be send.</div>
+  </div>
+
+      </ion-list>
+    </div>
+
+  </div>
+
+  <button class="btn-add-property" (click)="sendVerifications()">ADD</button>
+
+
+
+</ion-content>

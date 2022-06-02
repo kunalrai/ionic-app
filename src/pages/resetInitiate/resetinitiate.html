@@ -1,0 +1,48 @@
+
+<ion-content>
+  <ion-header >
+    <ion-navbar>
+      <ion-buttons start>
+        <ion-nav></ion-nav>
+      </ion-buttons>
+
+      <ion-toolbar>
+        <ion-title text-wrap text-center>Forgot</ion-title>
+      </ion-toolbar>
+      <ion-buttons end>
+        <button ion-button icon-only>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+
+  <div class="clear"></div>
+  <ion-list class="inputContainer">
+
+    <form name="loginform" (submit)="initiateNow()">
+      <ion-item no-lines>
+        <ion-label stacked>{{viewText.label}}</ion-label>
+        <ion-input type="{{viewText.inputType}}" placeholder="eg. {{viewText.eg}}" [(ngModel)]="login.login" name="login" required></ion-input>
+      </ion-item>
+      <ion-item no-lines class="use_for_verification">
+        <ion-checkbox color="orange"  [(ngModel)]="login.isMobileVerification" (ngModelChange)="changeVerification(login.isMobileVerification)" name="isMobileVerification"></ion-checkbox>
+        <ion-label color="orange">Mobile instead?</ion-label>
+      </ion-item>
+
+      <ion-item no-lines class="forgot" text-wrap text-center>
+        Enter your email and we will send you an instruction on how to reset it
+      </ion-item>
+
+      <ion-item no-lines>
+        <button ion-button round class="pay_as_guest" type="submit" >SIGN IN</button>
+        <div class="alreadyUser">Already with code? <button type="button" ion-button clear (click)="Goto('resetpassword')">Reset Password</button></div>
+      </ion-item>
+    </form>
+
+  </ion-list>
+
+
+
+
+</ion-content>

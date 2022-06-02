@@ -1,0 +1,44 @@
+<ion-header >
+  <ion-navbar>
+    <ion-buttons start>
+      <ion-nav></ion-nav>
+    </ion-buttons>
+
+    <ion-toolbar>
+      <ion-title text-wrap text-center>Add Property</ion-title>
+    </ion-toolbar>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<ion-item class="propertyTitle" text-center no-lines>Select Property Type</ion-item>
+  <ion-grid class="categoryGrid">
+    <ion-row>
+      <ion-col col-4 *ngFor="let categoryItem of category" class="pImageContainer {{equal(categoryItem.category_id,selectedMainCategory)?'active':''}}" (click)="loadSubCategory(categoryItem.category_id)">
+        <ion-item no-lines class="fa-{{categoryItem.category_name}}"></ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let categoryItem of category" class="categoryWriteUp">
+        <p class="{{equal(categoryItem.category_id,selectedMainCategory)?'active':''}}">{{categoryItem.category_name}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-item class="propertySubTitle" *ngIf="intFy(selectedMainCategory)>0" text-center no-lines>Select Sub Type</ion-item>
+
+    <ion-row>
+      <ion-col  *ngFor="let SubCategoryItem of SubCategory | Search:'category_id':selectedMainCategory" class="pImageContainer" (click)="startAddingProject(SubCategoryItem.subcategory_id,SubCategoryItem.category_id)">
+        <ion-item no-lines class="fa-{{SubCategoryItem.subcategory_name}}"></ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let SubCategoryItem of SubCategory  | Search:'category_id':selectedMainCategory"  class="categoryWriteUp"  (click)="startAddingProject(SubCategoryItem.subcategory_id,SubCategoryItem.category_id)">
+        <p>{{SubCategoryItem.subcategory_name}}</p>
+    </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>

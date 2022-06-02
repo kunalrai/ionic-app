@@ -1,0 +1,397 @@
+
+
+
+
+
+
+
+
+<ion-content>
+
+  <custom-header [header]="header_data"></custom-header>
+  <ion-grid class="top-menu">
+    <ion-row>
+      <ion-col text-center>
+        <div class="d-title">
+          Select Property Type
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center *ngFor="let pt of propertyTypes">
+        <div (click)="tab(pt, 1,0,pt.dId)" class="{{pt.data.class}}">
+          <img src="assets/img/pages/add-property/{{pt.data.img}}"><br>
+          {{pt.data.text}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Start Residential -->
+  <div [class]="propertyTypes[0].display">
+    <ion-grid class="top-menu">
+      <ion-row>
+        <ion-col text-center>
+          <div class="d-title">
+            Select Sub-Type
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngIf="propertyTypes[0].sub.length < 3"></ion-col>
+        <ion-col text-center padding-left padding-right *ngFor="let pst of propertyTypes[0].sub">
+          <div (click)="tab(pst, 2, 0,pst.dId)" class="{{pst.data.class}}">
+            <img src="assets/img/pages/add-property/{{pst.data.img}}"><br>
+            {{pst.data.text}}
+          </div>
+        </ion-col>
+        <ion-col *ngIf="propertyTypes[0].sub.length < 3"></ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+  <!-- End Residential -->
+
+  <!-- Start Commercial -->
+  <div [class]="propertyTypes[1].display">
+
+    <ion-grid class="top-menu">
+      <ion-row>
+        <ion-col text-center>
+          <div class="d-title">
+            Select Sub-Type
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngIf="propertyTypes[1].sub.length < 3"></ion-col>
+        <ion-col text-center padding-left padding-right *ngFor="let pst of propertyTypes[1].sub">
+          <div (click)="tab(pst, 2, 1)" class="{{pst.data.class}}">
+            <img src="assets/img/pages/add-property/{{pst.data.img}}"><br>
+            {{pst.data.text}}
+          </div>
+        </ion-col>
+        <ion-col *ngIf="propertyTypes[1].sub.length < 3"></ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </div>
+  <!-- End Commercial -->
+
+  <!-- Start Industrial -->
+  <div [class]="propertyTypes[2].display">
+
+    <ion-grid class="top-menu">
+      <ion-row>
+        <ion-col text-center>
+          <div class="d-title">
+            Select Sub-Type
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 *ngIf="propertyTypes[2].sub.length < 3"></ion-col>
+        <ion-col col-4 text-center [attr.class]="propertyTypes[2].sub.length < 3 ? 'col padding-left padding-right' : 'col'" *ngFor="let pst of propertyTypes[2].sub">
+          <div (click)="tab(pst, 2, 2)" class="{{pst.data.class}}">
+            <img src="assets/img/pages/add-property/{{pst.data.img}}"><br>
+            {{pst.data.text}}
+          </div>
+        </ion-col>
+        <ion-col *ngIf="propertyTypes[2].sub.length < 3"></ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+  <!-- End Industrial -->
+  <form (submit)="createProperty(0)" [formGroup]="properties">
+
+    <div [hidden]="propertyTypes[0].sub[1].display !== 'none' || !selected">
+    <div class="s-title">House Details</div>
+
+  <div class="add-proprety-form">
+
+    <ion-list>
+
+
+      <ion-item>
+        <ion-label floating>Property Name</ion-label>
+        <ion-input type="text" formControlName="property_name"></ion-input>
+      </ion-item>
+      <span class="invalid_input" [hidden]="(properties.controls['property_name'].valid==true || properties.controls['property_name'].pristine==true)">Property name must be greater than 3 characters!</span>
+
+      <ion-item>
+        <ion-label floating>Unique ID</ion-label>
+        <ion-input type="text" formControlName="property_unique"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>No. of Floors</ion-label>
+        <ion-input type="tel" required formControlName="property_floors"></ion-input>
+      </ion-item>
+      <span class="invalid_input"  [hidden]="(properties.controls['property_floors'].valid==true || properties.controls['property_floors'].pristine==true)">Property Floor must be numeric!</span>
+
+      <ion-item>
+        <ion-label floating>No. of Units</ion-label>
+        <ion-input type="tel" required formControlName="property_units"></ion-input>
+      </ion-item>
+      <span class="invalid_input"  [hidden]="(properties.controls['property_units'].valid==true || properties.controls['property_units'].pristine==true)">Property Units must be numeric!</span>
+
+
+      <ion-item>
+        <ion-label floating>Area in sq.ft</ion-label>
+        <ion-input type="tel" required formControlName="property_area"></ion-input>
+      </ion-item>
+      <span class="invalid_input"  [hidden]="(properties.controls['property_area'].valid==true || properties.controls['property_area'].pristine==true)">Property area must not be empty!</span>
+
+    </ion-list>
+  </div>
+
+      <div class="s-title">Address Details</div>
+      <div class="add-proprety-form">
+        <ion-list>
+
+          <div class="searchinput">
+            <label class="prop_label" *ngIf="show.address">Address</label>
+            <ion-auto-complete (itemSelected)="itemSelected($event)" [dataProvider]="search" [options]="{ type : 'text',placeholder:'Address'  }" #address></ion-auto-complete>
+          </div>
+          <span class="invalid_input" [hidden]="(address.getValue()  || properties.pristine==true)">Address must be greater than 2 characters!</span>
+
+          <div class="searchinput" >
+            <label class="prop_label" *ngIf="show.address2">Address (Optional)</label>
+            <ion-auto-complete (itemSelected)="itemSelected($event)" [dataProvider]="search" [options]="{ type : 'text',placeholder:'Address (Optional)'  }" #address2></ion-auto-complete>
+          </div>
+
+          <div class="searchinput">
+            <label class="prop_label" *ngIf="show.city">City</label>
+            <ion-auto-complete (itemSelected)="itemSelected($event)" [dataProvider]="search" [options]="{ type : 'text',placeholder:'City'  }" #city></ion-auto-complete>
+          </div>
+          <span class="invalid_input" [hidden]="(city.getValue() || properties.pristine==true)">City must be greater than 2 characters!</span>
+
+          <ion-item>
+            <ion-label floating>Zipcode (optional)</ion-label>
+            <ion-input type="tel" formControlName="pincode"></ion-input>
+          </ion-item>
+
+
+
+
+
+          <ion-item>
+            <ion-label floating>Rent Amount</ion-label>
+            <ion-input type="tel" required formControlName="amount"></ion-input>
+          </ion-item>
+          <span class="invalid_input" required [hidden]="(properties.controls['amount'].valid==true || properties.controls['amount'].pristine==true)">Amount must be numeric!</span>
+
+        </ion-list>
+    </div>
+
+
+    <div class="s-title">Images</div>
+<!--     <div class="images">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 *ngFor="let file of path"><img [src]="file.url|safe" (press)="removeFile(file.name)"/></ion-col>
+          <ion-col col-4>
+            <button class="add-image" type="button">
+              <ion-icon name="add"></ion-icon> Add Photo
+            </button>
+            <ion-input class="fileUpload" type="file" (change)="addFile($event)" multiple></ion-input>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div> -->
+
+    <div class="images">
+      <ul>
+         <li *ngFor="let file of path" [ngStyle]="{'background-image': 'url('+file.url+')'}" (press)="removeFile(file.name)"></li>
+         <li>
+            <button class="add-image green">
+               <ion-icon name="add"></ion-icon> Add Photo
+            </button>
+            <ion-input class="fileUpload" type="file" (change)="addFile($event)" multiple></ion-input>
+         </li>
+      </ul>
+    </div>
+
+    <button class="btn-add-property" type="submit" [disabled]="!properties.valid">ADD PROPERTY</button>
+  </div>
+  </form>
+
+
+
+
+
+
+
+
+
+  <form (submit)="createProperty(1)" [formGroup]="properties2">
+
+    <div  [hidden]="propertyTypes[0].sub[1].display == 'none' || !selected">
+    <div class="s-title">House Details</div>
+    <div class="add-proprety-form">
+      <ion-list>
+
+
+        <ion-item>
+          <ion-label floating>Property Name</ion-label>
+          <ion-input type="text" formControlName="property_name"></ion-input>
+        </ion-item>
+        <span class="invalid_input"  [hidden]="(properties2.controls['property_name'].valid==true || properties2.controls['property_name'].pristine==true)">Property name must be greater than 3 characters!</span>
+        <ion-item>
+          <ion-label floating>Unique ID (Optional)</ion-label>
+          <ion-input type="text" formControlName="property_unique"></ion-input>
+        </ion-item>
+        <!--
+                <ion-item>
+                  <ion-label floating>No. of Floors</ion-label>
+                  <ion-input type="tel" required formControlName="property_floors"></ion-input>
+                </ion-item>
+                <span class="invalid_input"  [hidden]="(properties2.controls['property_floors'].valid==true || properties2.controls['property_floors'].pristine==true)">PropeFloor must be numeric!</span>
+
+
+            <!--<ion-item>
+                  <ion-label floating>No. of Units</ion-label>
+                  <ion-input type="tel" required formControlName="property_units"></ion-input>
+                </ion-item>
+                <span class="invalid_input"  [hidden]="(properties2.controls['property_units'].valid==true || properties2.controls['property_units'].pristine==true)">Property Units must be numeric!</span>
+        -->
+
+        <ion-item no-lines>
+          <ion-label stacked>
+            <span>Flats</span>
+            <p>Please tell us how many number of floors does the building have. </p>
+          </ion-label>
+        </ion-item>
+
+        <div class="g-buttons">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <button class="{{properties2.controls['property_floors'].value==10?'active':''}} g-btn" (click)="properties2.controls['property_floors'].setValue(10)" type="button">1 - 10</button>
+              </ion-col>
+              <ion-col>
+                <button type="button"  class="{{properties2.controls['property_floors'].value==20?'active':''}} g-btn" (click)="properties2.controls['property_floors'].setValue(20)" >11 - 20</button>
+              </ion-col>
+              <ion-col>
+                <button type="button"  class="{{properties2.controls['property_floors'].value==30?'active':''}} g-btn" (click)="properties2.controls['property_floors'].setValue(30)" >21 - 30</button>
+              </ion-col>
+              <ion-col>
+                <button type="button"  class="{{properties2.controls['property_floors'].value==40?'active':''}} g-btn" (click)="properties2.controls['property_floors'].setValue(40)" >30+</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <ion-item no-lines>
+          <ion-label stacked>
+            <span>Units/Floors</span>
+            <p>Just tell us how many number of flats are there on
+              each floor. We will calculate the whole number of
+              flats you have in your building for you. </p>
+          </ion-label>
+        </ion-item>
+        <ion-grid class="plus-menus">
+          <ion-row>
+            <ion-col text-right>
+              <button class="icb pm-btn" (click)="minus()" type="button">
+                <img src="assets/img/icons/minus@2x.png">
+              </button>
+            </ion-col>
+            <ion-col>
+              <input type="tel"  formControlName="property_units" required class="text-input" />
+            </ion-col>
+            <ion-col text-left>
+              <button class="icb pm-btn" (click)="plus()" type="button">
+                <img src="assets/img/icons/plus@2x.png">
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-item>
+          <ion-label stacked>
+            <span>Prefix for Floor</span>
+            <p>We would like to know how do you number your flats
+              on each floor.
+              eg. If you label flats on first floor as 101, 102, 103, etc.
+              Your prefix string would be '10'</p>
+          </ion-label>
+          <ion-input type="text" formControlName="property_prefix" ></ion-input>
+        </ion-item>
+        <span class="invalid_input" [hidden]="(properties2.controls['property_prefix'].valid==true || properties2.controls['property_prefix'].pristine==true)">Property prefix must not be empty!</span>
+
+
+
+
+        <ion-item>
+          <ion-label floating>Area in sq.ft</ion-label>
+          <ion-input type="text" required formControlName="property_area"></ion-input>
+        </ion-item>
+        <span class="invalid_input" [hidden]="(properties2.controls['property_area'].valid==true || properties2.controls['property_area'].pristine==true)">Property area must not be empty!</span>
+
+      </ion-list>
+    </div>
+      <div class="s-title">Address Details</div>
+      <div class="add-proprety-form">
+        <ion-list>
+          <div class="searchinput">
+            <label class="prop_label" *ngIf="show.address">Address</label>
+            <ion-auto-complete (itemSelected)="itemSelected($event)" [dataProvider]="search" [options]="{ type : 'text',placeholder:'Address' }" #address1></ion-auto-complete>
+          </div>
+          <span class="invalid_input" [hidden]="(address1.getValue()  || properties2.pristine==true)">Address must be greater than 2 characters!</span>
+
+          <div class="searchinput">
+            <label class="prop_label" *ngIf="show.address2">Address (Optional)</label>
+            <ion-auto-complete (itemSelected)="itemSelected($event)" [dataProvider]="search" [options]="{ type : 'text',placeholder:'Address (Optional)'  }" #address12></ion-auto-complete>
+          </div>
+
+          <div class="searchinput">
+            <label class="prop_label" *ngIf="show.city">City</label>
+            <ion-auto-complete (itemSelected)="itemSelected($event)" [dataProvider]="search" [options]="{ type : 'text',placeholder:'City'  }" #city1></ion-auto-complete>
+          </div>
+          <span class="invalid_input" [hidden]="(city1.getValue()  || properties2.pristine==true)">City must be greater than 2 characters!</span>
+
+
+          <ion-item>
+            <ion-label floating>Zipcode (optional)</ion-label>
+            <ion-input type="tel" formControlName="pincode"></ion-input>
+          </ion-item>
+
+
+
+
+
+          <ion-item>
+            <ion-label floating>Rent Amount</ion-label>
+            <ion-input type="tel" required formControlName="amount"></ion-input>
+          </ion-item>
+          <span class="invalid_input"  [hidden]="(properties2.controls['amount'].valid==true || properties2.controls['amount'].pristine==true)">Amount must be numeric!</span>
+
+        </ion-list>
+    </div>
+
+    <div class="s-title">Images</div>
+    <div class="images">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 *ngFor="let file of path"><img [src]="file.url|safe" (press)="removeFile(file.name)"/></ion-col>
+          <ion-col col-4>
+            <button class="add-image" type="button">
+              <ion-icon name="add"></ion-icon> Add Photo
+            </button>
+            <ion-input class="fileUpload" type="file" (change)="addFile($event)" multiple></ion-input>
+
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <button class="btn-add-property" type="submit" [disabled]="!properties2.valid">ADD PROPERTY</button>
+  </div>
+
+  </form>
+</ion-content>

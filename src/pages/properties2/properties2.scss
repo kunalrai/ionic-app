@@ -1,0 +1,58 @@
+page-properties2
+{
+  .list
+  {
+    margin-top: 10px;
+    .item
+    {
+      padding: 5px 0 0 0;
+      .left
+      {
+        padding-left: 15px;
+        .image
+        {
+          width: 130px;
+          height: 80px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-color: #eee;
+        }
+        .title
+        {
+          font-size: 10px;
+          text-align: center;
+          padding: 5px 0;
+          font-weight: 600;
+        }
+      }
+      .subtitle
+      {
+        font-size: 11px;
+        color: #777;
+        width: 95px;
+        white-space: initial;
+      }
+      .amount
+      {
+        margin-top: 25px;
+        font-size: 14px;
+        font-weight: bold;
+        .dk
+        {
+          margin-right: 5px;
+        }
+        .per-month
+        {
+          font-size: 10px;
+          color: #888;
+          font-weight: 600;
+        }
+      }
+    }
+    .item:nth-of-type(even) 
+    {
+        background: #f4f4f4;
+    }
+  }
+}

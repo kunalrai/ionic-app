@@ -1,0 +1,167 @@
+<ion-content>
+    
+   <custom-header [header]="header_data"></custom-header>
+
+   <div class="page-title">
+     <h1>
+       My Previous Home
+       <span class="amount">$2400/mo</span>
+     </h1>
+     <p>415 Schamberger<br> Brooks NY
+       <span class="lease-ends">Lease ends in <b>4 months</b></span>
+     </p>
+   </div>  
+   
+   <div class="head-images">
+     <table border="0" cellpadding="0" cellspacing="0" width="100%">
+       <tr>
+         <td><img src="assets/img/pages/my-properties/head-image-1.jpg"></td>
+         <td><img src="assets/img/pages/my-properties/head-image-2.jpg"></td>
+         <td><img src="assets/img/pages/my-properties/head-image-3.jpg"></td>
+       </tr>
+     </table>
+   </div>
+   
+   <div class="s-title">Next rent in</div>
+   <div class="slide-days">
+       <ion-range [(ngModel)]="days" min="1" max="30">
+         <h4 range-left small name="sunny">{{days}} day<span *ngIf="days > 1">s</span></h4>
+       </ion-range>
+   </div>
+
+   <div class="s-title">Tenants</div>
+   <div class="users">
+     <ion-grid no-padding>
+       <ion-row no-padding>
+         <ion-col>
+           <div class="block" text-center>
+              <div class="img">
+                <img src="assets/img/pages/invoice/altaf.png">
+              </div>
+              <div class="name">
+                Altaf
+              </div>
+              <div class="state">
+                Employed
+              </div>
+           </div>
+         </ion-col>
+         <ion-col>
+           <div class="block" text-center>
+              <div class="img">
+                <img src="assets/img/pages/invoice/nadia.png">
+              </div>
+              <div class="name">
+                Nadia
+              </div>
+              <div class="state">
+                Employed
+              </div>
+           </div>
+         </ion-col>
+       </ion-row>
+     </ion-grid>
+   </div>
+
+   <div class="s-title">Pending Amount</div>
+   <div class="block price">
+     <span class="dk">د.ك</span> 0
+   </div>
+
+   <div class="s-title">Amount paid this year</div>
+   <div class="block price black">
+     <span class="dk">د.ك</span> 45723
+      <span float-right class="last-payment">Last Payment - July 10 </span>
+   </div>
+
+   <div class="s-title">Invoice Details</div>
+   <div class="div-form">
+     <ion-list class="input-item-number">
+       <ion-item>
+          <div item-left class="dk" text-right>د.ك</div>
+          <ion-input type="tel" text-left maxlength="4" value="4600"></ion-input>
+       </ion-item>
+     </ion-list>
+
+     <div class="row pd">
+       <table width="100%" cellpadding="2">
+         <tr>
+           <td>Rent July</td>
+           <td class="dire">4300 <b class="dk">د.ك</b></td>
+         </tr>
+         <tr>
+           <td>Water Bill</td>
+           <td class="dire">300 <b class="dk">د.ك</b> 
+           </td>
+         </tr>
+       </table>
+     </div>
+     <b class="new-payment">New payment</b>
+     <div class="pd2 inv">
+       
+       <div class="s-title npL npR c-white">Invoice Amount</div>
+       <div class="inp">
+          <ion-grid class="plus-menus">
+             <ion-row>
+                <ion-col text-right>
+                   <button class="icb pm-btn" (click)="minus()">
+                      <img src="assets/img/icons/minus@2x.png">
+                   </button>
+                </ion-col>
+                <ion-col>
+                   <input type="number" (ngModel)="filds.flatFloor" value="{{filds.flatFloor}}" class="text-input" />
+                </ion-col>
+                <ion-col text-left>
+                   <button class="icb pm-btn" (click)="plus()">
+                      <img src="assets/img/icons/plus@2x.png">
+                   </button>
+                </ion-col>
+             </ion-row>
+          </ion-grid>
+       </div>
+
+       <div class="s-title npL npR c-white">Invoice Description</div>
+       <div class="inp text-inp-2">
+         <ion-list>
+           <ion-item>
+             <ion-input type="text" value="Utility Bill"></ion-input>
+           </ion-item>
+         </ion-list>
+       </div>
+
+       <button class="btn-add-new">Add New Section</button>
+ 
+     </div>
+     <div class="pd2">
+       <label padding-top margin-top class="block">
+         <ion-checkbox></ion-checkbox> Repeat
+       </label>
+
+       <p class="nmT text-ss">
+         Use this to repeat the invoice in future. 
+         You can select the time duration from the following options. 
+         We will send the invoice depending on the date you will select for the invoice. 
+       </p>
+     </div>
+     <div class="gb">
+       <table width="100%">
+         <tr>
+           <td width="25%"><button class="gb-item">WEEKLY</button></td>
+           <td width="25%"><button class="gb-item">BI-WEEKLY</button></td>
+           <td width="25%"><button class="gb-item">MONTHLY</button></td>
+         </tr>
+       </table>
+       <div class="s-title">Invoice Date</div>
+       <div class="div-date-picker">
+         <div class="date_wrapper outside">
+
+            <div class="lines"></div>
+            <select class="date-picker" id="month" name="month">
+              <option *ngFor="let d of days_name" value="{{d.val}}">{{d.name}}</option>
+            </select>
+         </div>
+       </div>
+   </div> 
+   </div> 
+       <button class="btn-add-property" disabled>RAISE INVOICE</button>
+</ion-content>

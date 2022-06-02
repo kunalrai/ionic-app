@@ -1,0 +1,64 @@
+page-my-properties-house-3
+{
+  .page-title
+  {
+    padding: 20px 20px 1px 20px;
+    background-color:#d4cd91;
+    color: #5d4916;
+    h1
+    {
+      font-weight: 300;
+      margin-top: 0;
+      font-size: 23px;
+    }
+  }
+  .head-images
+  {
+    .user-images-slider
+    {
+      .swiper-slide img
+      {
+        width: 100%;
+        max-height: 120px;
+      }
+    }
+  }
+  .page-content {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: #332944;
+    padding: 0 30px;
+    margin: 100px 0;
+    .no-data
+    {
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+    .msg span
+    {
+      color: #609cbd;
+    }
+  }
+  .label[stacked] {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .btn-add-property
+  {
+    width: 100%;
+    height: 60px;
+    color: #fff;
+    background-color: #0f97b0;
+    letter-spacing: 0.4px;
+    font-size: 18px;
+    margin: 0;
+    margin-top: 10px;
+  }
+}
+  page-my-properties-house-3 .btn-add-property,page-my-properties-house-2 .btn-add-property
+  {
+    position: absolute;
+    bottom: 0;
+  }
+

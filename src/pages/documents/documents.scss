@@ -1,0 +1,99 @@
+page-documents
+{
+   .list{
+    margin-top: 10px;
+    .item
+    {
+        min-height: 65px; 
+        h2
+        {
+          font-weight: 700;
+          font-size: 14px;
+          color: #2b2842;
+        }
+        img
+        {
+          float: left;
+          width: 60px;
+          margin-right: 20px;
+        }
+    }
+    .w-list
+    {
+       h2 {
+          position: relative;
+          height: 69px;
+          display: table-cell;
+          vertical-align: middle;
+      }
+    }
+    .item.item-block .item-inner {
+        border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+    }  
+    .oval
+    {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #eee;
+    }
+    .oval.orange
+    {
+      background: #f6a623;
+    }
+    .oval.red
+    {
+      background: #d0011b;
+    }
+    .oval.green
+    {
+      background: #4caf50;
+    }
+  }
+  .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+      border-bottom: 0.55px solid rgba(151, 151, 151, 0.2);
+  }
+  .list-ios > .item-block:last-child .item-inner, .list-ios > .item-wrapper:last-child .item-block .item-inner {
+      border-bottom: 0;
+  }
+  .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+      border-bottom: 1px solid rgba(151, 151, 151,1);
+      box-shadow: none;
+  }
+  .cols
+  {
+    margin-top: 15px;
+    .col
+    {
+      margin-bottom: 10px;
+    }
+    b
+    {
+      color: #2b2842;
+      font-size: 14px;
+      margin-top: 10px;
+      display: block;
+    }
+    img
+    {
+      width: 60px;
+    }
+  }
+  .mpdB
+  {
+    padding-bottom: 60px;
+  }
+  [w-list="true"]:nth-of-type(even) 
+  {
+      background: #f4f4f4;
+  }
+  .footer-btn
+  {
+    position: fixed;
+    bottom: 0;
+  }
+  .b-header .options .item[no-lines] .item-inner {
+     border-bottom: 0 !important;
+     box-shadow: none !important;
+  }
+}

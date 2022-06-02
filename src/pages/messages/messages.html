@@ -1,0 +1,29 @@
+<ion-content>
+    
+   <custom-header [header]="header_data"></custom-header>
+
+   <div class="tabs">
+     <ion-grid>
+       <ion-row>
+         <ion-col *ngFor="let t of tabs" (click)="Tabs(t)" [ngClass]="t.class" text-center>{{t.name}}</ion-col>
+       </ion-row>
+     </ion-grid>
+   </div>
+   
+   <ion-list class="messages">
+     <ion-item *ngFor="let m of messages | ChatFilter:'is_read':filterVal" [attr.new]="m.is_read==0 ? 'true' : 'false'" (click)="openChat(m)">
+       <div class="avatar" [ngStyle]="{'background-image': 'url('+service.Link(m.image_path)+')'}" item-start>
+         <div class="on_off"  *ngIf="isOnline(m.id)" >
+            <span class="sts on"></span> online
+         </div>
+         <div class="on_off"  *ngIf="!isOnline(m.id)" >
+            <span class="sts off"></span> offline
+         </div>
+       </div>
+       <h2><b>{{m.receiverName}}</b> <span class="date">{{ m.started_datetime | DateFormat}}</span></h2>
+       <h3>{{m.property_name}} <span *ngIf="m.is_read==0" class="new"><i>New</i></span></h3>
+       <p><i>{{m.lastMessage}}</i></p>
+     </ion-item>
+   </ion-list>
+
+</ion-content>

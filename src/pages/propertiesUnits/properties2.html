@@ -1,0 +1,20 @@
+
+<ion-content>
+  
+  <custom-header [header]="header_data" [EnableBackButton]="true"></custom-header>
+  
+  <ion-list no-lines>
+    <ion-item *ngFor="let p of properties.property_unit" (click)="openProperty(p.unit_id)">
+      <div class="left" item-start>
+        <div class="image" [ngStyle]="{'background-image': 'url('+service.Link(properties.image[0].image_path)+')'}"></div>
+        <div class="title" >{{properties.property.property_name}}</div>
+      </div>
+      <h2><b>{{p.flat_name}}</b></h2>
+      <p class="subtitle">{{properties.property.property_address}}</p>
+      <div class="amount">
+        <span><span class="dk" float-left>د.ك</span> {{properties.property.property_price}}</span> <span class="per-month">/ month</span>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

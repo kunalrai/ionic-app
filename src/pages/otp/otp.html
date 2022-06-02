@@ -1,0 +1,57 @@
+
+
+<ion-content>
+  <ion-list>
+
+    <ion-item no-lines class="i-er">
+      <div class="ER3">EasyRent</div>
+    </ion-item>
+
+    <ion-item text-center class="mt" no-lines>
+      <img src="assets/img/pages/confirm-account/smartphone@2x.png">
+    </ion-item>
+
+    <ion-item text-center no-lines>
+      <h2>Enter OTP sent to registered {{isMobile?'Mobile Number':'Email'}}</h2>
+      <p>Please enter it below to confirm your registration</p>
+    </ion-item>
+    <form name="otpForm" (submit)="verify()">
+
+    <ion-item class="list-numbers" text-center no-lines>
+      <ion-grid id="list">
+        <ion-row>
+          <ion-col>
+            <input type="number" [(ngModel)]="msg[0]" name="msg_0" myTabindex="1" (keyup)="onKeyup($event, 1)" (keypress)="onKeypress($event)" (focus)="onFocus($event)" id="inp1" class="input-number">
+          </ion-col>
+          <ion-col>
+            <input type="number"[(ngModel)]="msg[1]" name="msg_1" myTabindex="2" (keyup)="onKeyup($event, 2)" (keypress)="onKeypress($event)" (focus)="onFocus($event)" id="inp2" class="input-number">
+          </ion-col>
+          <ion-col>
+            <input type="number" [(ngModel)]="msg[2]" name="msg_2" myTabindex="3"  (keyup)="onKeyup($event, 3)" (keypress)="onKeypress($event)" (focus)="onFocus($event)" id="inp3" class="input-number">
+          </ion-col>
+          <ion-col>
+            <input type="number" [(ngModel)]="msg[3]" name="msg_3" myTabindex="4" (keyup)="onKeyup($event, 4)" (keypress)="onKeypress($event)" (focus)="onFocus($event)" id="inp4" class="input-number">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item text-center no-lines *ngIf="!resetAgain">
+      <p>You can re-send otp in <b>{{time}}</b> seconds</p>
+    </ion-item>
+
+    <ion-item text-center no-lines *ngIf="resetAgain">
+      <p>Did not receive OTP? <button type="button" clear color="primary" (click)="resendOtp()">resend</button></p>
+    </ion-item>
+
+    <div class="pdd">
+
+      <ion-item padding-left padding-right no-lines>
+        <button class="btn full" type="submit">Confirm</button>
+      </ion-item>
+
+    </div>
+    </form>
+
+  </ion-list>
+</ion-content>

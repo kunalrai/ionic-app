@@ -1,0 +1,32 @@
+
+
+<ion-content>
+
+  <custom-header [header]="header_data"></custom-header>
+
+  <div class="page-title">
+    <h1>{{property.property.property_name}}</h1>
+    <p>{{property.property.property_address}}<br> {{property.property.property_city}}</p>
+  </div>
+
+  <div class="head-images">
+    <ion-slides class="user-images-slider" pager="false" slidesPerView="3" loop>
+      <ion-slide *ngFor="let item of property.image">
+        <img src="{{config.url}}{{item.image_path}}"/>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="page-content">
+    <div class="no-data">You have no tenants.</div>
+    <div class="msg">
+      Please start adding tenants<br>
+      by hitting on <span>Add Tenant</span> button</div>
+  </div>
+
+  <button class="btn-add-property"  (click)="gotoVerification()">ADD</button>
+
+
+
+</ion-content>
+

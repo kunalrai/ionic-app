@@ -1,0 +1,40 @@
+<ion-content>
+    
+   <custom-header [header]="header_data"></custom-header>
+   
+   <div class="date-slide">
+      <ion-slides (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="ionSlideDrag()" pager="false" slidesPerView="5" centeredSlides="true" initialSlide="{{(date.length-30)+currentDayNumber}}" loop>
+                <ion-slide *ngFor="let d of date;let x = index; let last=last" [attr.index]="x" [attr.data-date]="d.date" (click)="CurrentSlide(d.date)">
+                   <div class="slide-content">
+                     <div class="day-name">
+                       {{d.dayName}}
+                     </div>
+                     <div class="day-number">
+                       {{d.dayNumber}}
+                     </div>
+                     <div class="month-name">
+                       {{d.monthName}}
+                     </div>
+                   </div>
+                </ion-slide>
+      </ion-slides> 
+   </div>
+
+   <ion-list>
+     <button ion-item *ngFor="let i of list | notificationPortion:currentDate" [attr.isOdd]="odd" (click)="exeTapNotificationCmd(i.notification_command,i.notification_id)">
+       <table width="100%">
+         <tr>
+           <td class="biggerWidth">
+             <div class="oval orange" *ngIf="i.notification_ispushed"></div>
+             <div class="oval red"  *ngIf="!i.notification_ispushed"></div>
+           </td>
+           <td>
+             <h2>{{i.notification_text |Cut:40}}</h2>
+             <p>Past {{substractDate(i.notification_datetime)}} day<span *ngIf="substractDate(i.notification_datetime) > 1">s</span></p>
+           </td>
+         </tr>
+       </table>
+     </button>
+   </ion-list>
+  
+</ion-content>

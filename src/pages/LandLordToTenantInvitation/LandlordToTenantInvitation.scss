@@ -1,0 +1,125 @@
+page-my-properties-house-2
+{
+  .page-title
+  {
+    padding: 20px 20px 1px 20px;
+    background-color:#544c1e;
+    color: #fff;
+    h1
+    {
+      font-weight: 300;
+      margin-top: 0;
+      font-size: 23px;
+    }
+  }
+  .head-images
+  {
+    .user-images-slider
+    {
+      .swiper-slide img
+      {
+        width: 100%;
+        max-height: 120px;
+      }
+    }
+  }
+  .head-images
+  {
+    box-shadow: 0 5px 17px rgba(0, 0, 0, 0.44);
+    table {
+      tr td:first-child img {
+        border-right: 0px solid #fff;
+      }
+      tr td:nth-child(2) {
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
+      }
+      tr td:last-child img {
+        border-left: 0px solid #fff;
+      }
+    }
+    img
+    {
+      display: block;
+    }
+  }
+  .icon-check
+  {
+    text-align: center;
+    margin: 90px 0 40px;
+  }
+  .page-content {
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    color: #332944;
+    padding: 0 20px;
+    margin-bottom: 30px;
+  }
+  .page-title-sub
+  {
+    text-align: center;
+    color: #609cbd;
+    margin-bottom: 25px;
+    margin-top: 20px;
+  }
+  .inps
+  {
+    padding: 10px 45px;
+    .item.item-block .item-inner {
+      border-bottom: 1px solid #9f9f9f;
+    }
+    .item-input-has-focus .item-inner, .input-has-focus .item-inner {
+      border-bottom-color: #9f9f9f !important;
+      -webkit-box-shadow: 0 -1px 0 0 #9f9f9f inset !important;
+      box-shadow: 0 -1px 0 0 #9f9f9f inset !important;
+    }
+    .item-input-has-focus .label
+    {
+      color: rgba(0,0,0,0.6);
+    }
+    .list .item-input:last-child
+    {
+      border-bottom:0;
+    }
+    .list .item-input.item-input-has-focus:last-child, .list .item-input.input-has-focus:last-child
+    {
+      border-bottom-color: #9f9f9f !important;
+    }
+    .icon
+    {
+      margin: 0 0 -25px !important;
+      display: block;
+    }
+    .text-input
+    {
+      font-size: 18px;
+    }
+  }
+  .not-found
+  {
+    font-size: 11px;
+    color: #02bcbd;
+    padding: 3px 10px;
+  }
+  .label[stacked] {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .btn-add-property
+  {
+    width: 100%;
+    height: 60px;
+    color: #fff;
+    background-color: #0f97b0;
+    letter-spacing: 0.4px;
+    font-size: 18px;
+    margin: 0;
+    margin-top: 10px;
+  }
+  .plus {
+    position: absolute;
+    right: -35px;
+    top: 35px;
+  }
+}

@@ -1,0 +1,43 @@
+
+<ion-content style="background:#fff;">
+
+  <ion-slides pager="true" control="true">
+    <ion-slide index="3">
+      <div class="slide-content">
+        <img class="slide-img" src="assets/img/pages/intro1/bitmap@2x.png">
+        <div class="slide-footer-text">
+          Start adding your properties to one of the best rental app
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide index="2">
+      <div class="slide-content">
+        <img class="slide-img" src="assets/img/pages/intro1/shape@2x.png">
+        <div class="slide-footer-text">
+          Manage your payments easily
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide index="1">
+      <div class="slide-content">
+        <img class="slide-img" src="assets/img/pages/intro1/bitmap@2x.png">
+        <div class="slide-footer-text">
+          Start adding your properties to one of the best rental app
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide index="0">
+      <div class="slide-content">
+        <img class="slide-img" src="assets/img/pages/intro1/shape@2x.png">
+        <div class="slide-footer-text">
+          Manage your payments easily
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <button class="slide-buttons icb skip" [navPush]="pages.selectType">SKIP</button>
+  <button float-right class="slide-buttons icb next"  (click)="slideNext()">NEXT</button>
+
+
+</ion-content>

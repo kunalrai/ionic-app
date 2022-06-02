@@ -1,0 +1,182 @@
+page-settings
+{
+  .user
+  {
+    position: relative;
+    height: 278px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding:60px 30px;
+    color: #fff;
+    z-index: 1;
+    line-height: 27px;
+    .icon-o
+    {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border:2px solid rgba(255,255,255,0.3);
+      background: #a6a6a5;
+      box-shadow: inset 0 0 8px #666;
+      position: relative;
+    }
+    .icon-o:before
+    {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      width: 48%;
+      height: 48%;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+    .name
+    {
+      text-transform: uppercase;
+      font-size: 25px;
+      letter-spacing: 0.6px;
+    }
+    .profession
+    {
+      letter-spacing: 0.3px;
+      color: rgba(255, 255, 255, 0.79);
+    }
+    .item-icon
+    {
+      margin-top: 0;
+      margin-bottom: 0;
+      color: #fff;
+      opacity: 0.7;
+    }
+    .item-inner, .input-wrapper
+    {
+      margin: 0 !important;
+      padding: 0 !important;
+      color: #fff;
+      font-size: 13px;
+    }
+    .contact
+    {
+      margin-top: 20px;
+      .item
+      {
+        min-height: 30px;
+      }
+      div[item-start]
+      {
+        width: 30px;
+        margin: 0;
+      }
+      img
+      {
+        max-width: initial;
+      }
+      .label
+      {
+        opacity: 0.7;
+        font-weight: 300;
+        letter-spacing: 0.3px;
+        margin: 0;
+      }
+      .item .checkbox[item-right], .item.item .checkbox[item-end] {
+          margin: 7px 20px 7px 0;
+      }
+      .checkbox .checkbox-icon {
+          border-radius: 50%;
+          width: 23px;
+          height: 22px;
+          border-style: solid;
+          border-color: #fff; 
+      }
+      .checkbox .checkbox-checked.checkbox-icon {
+          background: #fff;
+      }
+      .checkbox .checkbox-checked .checkbox-inner {
+          border-color: #5898e4;
+      }
+      .checkbox-md .checkbox-checked .checkbox-inner {
+          left: 6px;
+          top: 2px;
+          width: 6px;
+          height: 11px;
+      }
+      .checkbox-ios .checkbox-checked .checkbox-inner {
+          left: 6px;
+          top: 2px;
+          width: 6px;
+          height: 11px;
+          border-width: 2px;
+          border-top-width: 0;
+          border-left-width: 0;
+      }
+      .checkbox .checkbox-checked {
+          border-color: #fff;
+      }
+    }
+  }
+  .user:before
+  {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .settings
+  {
+    margin: 0;
+    .s-icon
+    {
+      background: #777;
+      width: 80px;
+      height: 80px;
+      margin: 0;
+      img
+      {
+        margin: 32% auto 0;
+        display: block;
+      }
+    }
+    label
+    {
+      color: #4a4a4a;
+      letter-spacing: 0.2px;
+    }
+    .item.item-block .item-inner {
+        border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+    } 
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+        border-bottom: 0.55px solid rgba(151, 151, 151, 0.2);
+    }
+    .list-ios > .item-block:last-child .item-inner, .list-ios > .item-wrapper:last-child .item-block .item-inner {
+        border-bottom: 0;
+    }
+    .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom: 1px solid rgba(151, 151, 151,1);
+        box-shadow: none;
+    }
+    .notifications{
+      background-color: #b0a940;
+    }
+    .localization{
+      background-color: #977fb1;
+    }
+    .public-profile{
+      background-color: #99b17f;
+    }
+    .privacy-policy{
+      background-color: #b17f99;
+    }
+    .unlock-app{
+      background-color: #7fb197;
+    }
+  }
+  .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+      border-bottom:0;
+  }
+}

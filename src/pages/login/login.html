@@ -1,0 +1,40 @@
+<ion-content style="background:none;">
+  <ion-header>
+
+    <ion-navbar>
+      <ion-title>
+        <button class="icb btn-back pull-left" navPop><img class="back-button-icon" src="assets/img/icons/back-arrow@2x.png"></button>
+        Sign In
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  <form  (submit)="loginNow()" [formGroup]="loginForm" name="loginform" class="form">
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" class="in-label" floating >Username</ion-label>
+        <ion-input type="email" formControlName="user" name="user" required></ion-input>
+      </ion-item>
+      <span class="invalid_input" [hidden]="(loginForm.controls['user'].valid==true || loginForm.controls['user'].pristine==true)">Username must be greater than 3 characters!</span>
+      <ion-item>
+        <ion-label color="primary" class="in-label" floating>Password</ion-label>
+        <ion-input type="password" formControlName="password" name="password" required></ion-input>
+      </ion-item>
+      <span class="invalid_input"  [hidden]="(loginForm.controls['password'].valid==true || loginForm.controls['password'].pristine==true)">Password must be greater than 5 characters!</span>
+      <ion-item no-lines no-margin no-padding>
+        <div text-right>
+          <button class="icb signin" no-margin no-padding (click)="Goto('initiateRest')" type="button">FORGET PASSWORD?</button>
+        </div>
+      </ion-item>
+
+      <ion-item no-lines>
+        <button class="btn full" type="submit" [disabled]="!loginForm.valid">SIGN IN</button>
+      </ion-item>
+
+      <div text-center class="txt-footer">
+        <span>New User?</span> <button class="icb signin" type="button" no-margin no-padding (click)="Goto('signup')">SIGN UP</button>
+      </div>
+
+    </ion-list>
+
+  </form>
+</ion-content>

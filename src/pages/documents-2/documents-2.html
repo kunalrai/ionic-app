@@ -1,0 +1,59 @@
+<ion-content>
+    
+   <custom-header [header]="header_data"></custom-header>
+   
+   <div class="b-header" text-center>
+     <h3>Lease 45/301</h3>
+     <img src="assets/img/pages/documents/pdf@2x.png">
+     <h5>Tap to View</h5>
+   </div>
+
+   <form action="">
+
+     <div class="m-label">Name</div>
+     <div class="div-input">
+       <input type="text" class="form-control" name="name" value="Lease 45/301">
+     </div>
+
+     <div class="m-label">Date</div>
+     <div class="div-input">
+      <ion-item no-lines no-padding class="npd">
+        <ion-datetime class="form-control" displayFormat="DD MMM, YYYY" name="date" [(ngModel)]="date"></ion-datetime>
+      </ion-item>
+     </div>
+
+     <div class="m-label">Categories</div>
+     <div class="div-input">
+       <table width="100%">
+         <tr>
+           <td>
+             <div class="categories">
+               <div class="item">
+                 Apartments
+               </div>
+             </div>
+           </td>
+           <td valign="center" width="5%">
+             <button class="icb">
+               <img src="assets/img/icons/plus@2x.png">
+             </button>
+           </td>
+         </tr>
+       </table>
+     </div>
+
+     <div class="m-label">Notes</div>
+     <div class="div-input">
+       <textarea class="form-control" name="notes">13 May, 2016</textarea>
+     </div>
+
+     <div class="m-label">Meta Data</div>
+     <div class="div-input">
+       <textarea class="form-control" name="meta-data">Last modfied on - 12 May, 2017 \nLast modfied by - Self</textarea>
+     </div>
+     
+     <button class="footer-btn">ADD</button>
+
+   </form>
+  
+</ion-content>

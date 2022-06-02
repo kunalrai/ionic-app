@@ -1,0 +1,8 @@
+{
+  "name": "EasyRent",
+  "app_id": "d6bda989",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

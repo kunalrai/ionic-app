@@ -1,0 +1,370 @@
+page-chat
+{
+
+  .messages
+  {
+    overflow-x: hidden;
+    width: 100%;
+    overflow-y:scroll;
+    height:74vh;
+
+    .date
+    {
+      text-align: center;
+      padding: 3px 0 4px;
+      background: #def5fb;
+      color: #4a4a4a;
+      margin: 10px 0;
+      font-size: 12px;
+    }
+    .message
+    {
+      .avatar
+      {
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      ul.message-data
+      {
+        float: left;
+        display: block;
+        clear: both;
+        margin: 0;
+        padding: 0; 
+        padding-right: 10px;
+        li
+        {
+          display: block;
+          margin-bottom: 5px;
+          position: relative;
+          .check-sent
+          {
+            color: #fff;
+          }
+        }
+        li.text
+        {
+          background-color: #aaa;
+          padding: 5px 10px;
+          font-size: 15px;
+          color: #fff;
+          letter-spacing: 0.3px;
+          direction: ltr;
+          min-height: 50px;
+        }
+        li.text:after
+        {
+          content: "";
+          width: 14px;
+          height: 14px;
+          background: #aaa;
+          position: absolute;
+          left: -6px;
+          top: 17px;
+          transform: rotate(50deg);
+          z-index: -1;
+        }
+        li.file
+        {
+          width: 110px;
+          height: 160px;
+          position: relative;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          .check-sent
+          {
+            position: absolute;
+            right: 10px;
+            bottom: 5px;
+            z-index: 4;
+          }
+          .title
+          {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            background: #4990e2;
+            z-index: 2;
+            padding: 0 4px;
+            letter-spacing: 1px;
+          }
+          .iicon
+          {
+            width: 40px;
+            height: 45px;
+            background: #ffffff;
+            background: linear-gradient(225deg, transparent 8px, #ffffff 0) top right;
+            position: absolute;
+            top: 57.5px;
+            margin: auto;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            border-radius: 3px;
+            text-align: center;
+            letter-spacing: 1px;
+            font-size: 10px;
+            font-weight: bold;
+            padding-top: 15px;
+            color: #333;
+          }
+          .iicon.PDF
+          {
+            background: #e2574c;
+            background: linear-gradient(225deg, transparent 8px, #e2574c 0) top right;
+            color: #fff;
+          }
+          .iicon:after
+          {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: rgba(0,0,0,0.3);
+            background: linear-gradient(225deg, transparent 8px, rgba(0,0,0,0.3) 0) top right;
+            width: 12px;
+            height: 12px;
+          }
+        }
+        li.file:after
+        {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.4);
+        }
+        li.image
+        {
+          border:1px solid #ccc;
+          height: 200px;
+          background-color: #eee;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          .check-sent
+          {
+            position: absolute;
+            right: 10px;
+            bottom: 5px;
+            z-index: 4;
+          }
+        }
+      }
+    }
+    .message.receive
+    {
+      ul.message-data
+      {
+         li.text, li.text:after
+         {
+            background: #49a9e2;
+         }
+      }
+    }
+    .message.sent
+    {
+      .avatar
+      {
+        margin-right: 0;
+        margin-left: 20px;
+      }
+      table
+      {
+        direction: rtl;
+        ul.message-data
+        {
+          padding-right: 0;
+          padding-left: 10px;
+           li.text
+           {
+              background: #b8e986;
+              text-align: left;
+           }
+           li.text:after
+           {
+            background: #b8e986;
+            left: initial;
+            right: -6px;
+           }
+        }
+      }
+    } 
+  }
+  .chat-form
+  {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid #979797;
+    .option
+    {
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 60px;
+      text-align: center;
+      padding-top: 14px;
+      z-index: 3;
+    }
+    input
+    {
+      width: 100%;
+      border:0;
+      height: 100%;
+      margin: 0;
+      padding: 0 70px;
+      position: absolute;
+    }
+    .btn-send
+    {
+      position: absolute;
+      right: 0;
+      z-index: 3;
+      height: 100%;
+      width: 60px;
+      background: #d8d8d8;
+      font-size: 35px;
+    }
+  }
+  .ion-ios-checkmark {
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 10px;
+      margin-top: 6px;
+      float: right;
+      margin-left: 5px;
+  }
+  .ion-md-checkmark {
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 10px;
+      margin-top: 7px;
+      float: right;
+      margin-left: 5px;
+  }
+  .modal
+  {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 10;
+    .modal-content
+    {
+      position: absolute;
+      bottom: 70px;
+      left: 10px;
+      min-width: 100px;
+      min-height: 50px;
+      background: #fff;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    .modal-content:after
+    {
+      content: "";
+      width: 14px;
+      height: 14px;
+      background: #fff;
+      position: absolute;
+      bottom: -6px;
+      left: 13px;
+      transform: rotate(50deg);
+      z-index: -1;
+    }
+  }
+  .hidden
+  {
+    display: none;
+  }
+  .serviceRequest
+  {
+    width: 225px;
+    .title
+    {
+      font-size: 12px;
+      img
+      {
+        float: left;
+        margin-right: 15px;
+        margin-top: 0px;
+      }
+    }
+    ul
+    {
+      display: block;
+      padding: 0;
+      margin: 0;
+      margin-top: 15px;
+      li
+      {
+        display: block;
+        float: left;
+        margin-right: 10px;
+        font-size: 11px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        background: #d8d8d8;
+        letter-spacing: 0.2px;
+        color: #4a4a4a;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+      li.active
+      {
+        background-image: linear-gradient(252deg, #6b57fc, #59509c);
+        box-shadow: 0.5px 1px 1px 0 rgba(0, 0, 0, 0.5);
+        color: #fff;
+      }
+    }
+  }
+  .clearfix{
+    clear:both;
+  }
+  .sent .right{
+    float:right;
+  }
+
+  .no-scroll {
+      overflow:hidden;
+  }
+
+  .request {
+
+    position:relative;
+    top:8px;
+    span{
+      font-style: italic;
+      color:#6b57fc;
+      margin:auto 5px;
+    }
+    img{
+      float:left;
+      width:30px;
+    }
+  }
+
+  .typing_section{
+    height:20px;
+    position:absolute;
+    bottom:60px;
+    font-style: italic;
+    color:#6b57fc;
+    left:8px;
+    font-size:0.8em;
+  }
+}

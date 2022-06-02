@@ -1,0 +1,121 @@
+
+<ion-content>
+  
+  <custom-header [header]="header_data"></custom-header>
+  
+  <div class="user-header" *ngIf="User.user[0]" [ngStyle]="{'background-image': 'url('+service.Link(User.user[0].image_path)+')'}">
+      <button class="ops-btn left" (click)="openModal(1)">
+        <ion-icon ios="ios-phone-portrait" md="ios-phone-portrait"></ion-icon>
+      </button>
+      <div class="avatar" [ngStyle]="{'background-image': 'url('+service.Link(User.user[0].image_path)+')'}">
+        <input type="file" (change)="fileUpload($event)" id="file-input" style="position:absolute; top: -999999px" #fileInp>
+        <button *ngIf="!edit" class="ops-btn camera" (click)="selectFile()">
+          <ion-icon name="md-camera"></ion-icon>
+        </button>
+      </div>
+      <h2 *ngIf="!edit" class="name" (click)="openModal(3)">{{User.user[0].users_firstname}} {{User.user[0].users_lastname}}</h2>
+      <div *ngIf="edit">
+        <input type="text" class="name" name="name" [(ngModel)]="User.user[0].users_name">
+      </div>
+      <div class="title" *ngIf="User.user[0].users_work"  (click)="openModal(2)">{{User.user[0].users_work}}</div>
+      <div class="title" *ngIf="!User.user[0].users_work" (click)="openModal(2)">No work added yet!</div>
+      <button class="ops-btn right" (click)="openModal(0)">
+        <ion-icon name="ios-mail-outline"></ion-icon>
+      </button>
+  </div>
+  <ion-grid class="totals" *ngIf="User.user[0]">
+    <ion-row>
+      <ion-col ion-col-6 text-center>
+        <h3>{{User.user[0].property_count}}</h3>
+        <span class="title">Properties</span>
+      </ion-col>
+      <ion-col ion-col-6 text-center>
+        <h3>{{User.user[0].users_tenants}}</h3>
+        <span class="title">Tenants</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ul class="properties">
+    <li *ngFor="let p of User.property" [ngStyle]="{'background-image': 'url('+service.Link(p.image_path)+')'}" (click)="openProperty(p.property_id)">
+      <div class="details">
+        <div class="title">{{p.property_name}}</div>
+        <div class="subtitle">{{p.property_address}}</div>
+      </div>
+    </li>
+  </ul>
+  <button *ngIf="this.service.permission==3" class="add-properties" (click)="openProperty()">
+    <ion-icon name="ios-add-circle-outline"></ion-icon>
+  </button>
+  <button *ngIf="edit" class="save-profile" type="submit">SAVE PROFILE</button>
+
+</ion-content>
+
+<div class="modal {{modal[0].display}}">
+  <div class="modal-dialog">
+    <div class="modal-content" *ngIf="User.user[0]">
+      <ion-list no-lines no-margin>
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input type="email" name="email" [(ngModel)]="User.user[0].users_email"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="modal-footer">
+      <button ion-button float-right color="purple" (click)="saveProfile()">SAVE</button>
+      <button ion-button float-right color="white" (click)="closeModal(0)">CANCEL</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal {{modal[1].display}}">
+  <div class="modal-dialog">
+    <div class="modal-content" *ngIf="User.user[0]">
+      <ion-list no-lines no-margin>
+        <ion-item>
+          <ion-label>Mobile</ion-label>
+          <ion-input type="tel" name="mobile"  [(ngModel)]="User.user[0].users_mobile"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="modal-footer">
+      <button ion-button float-right color="purple" (click)="saveProfile()">SAVE</button>
+      <button ion-button float-right color="white" (click)="closeModal(1)">CANCEL</button>
+    </div>
+  </div>
+</div>
+<div class="modal {{modal[2].display}}">
+  <div class="modal-dialog">
+    <div class="modal-content" *ngIf="User.user[0]">
+      <ion-list no-lines no-margin>
+        <ion-item>
+          <ion-label>Work</ion-label>
+          <ion-input type="text" name="mobile"  [(ngModel)]="User.user[0].users_work"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="modal-footer">
+      <button ion-button float-right color="purple" (click)="saveProfile()">SAVE</button>
+      <button ion-button float-right color="white" (click)="closeModal(2)">CANCEL</button>
+    </div>
+  </div>
+</div>
+<div class="modal {{modal[3].display}}">
+  <div class="modal-dialog">
+    <div class="modal-content" *ngIf="User.user[0]">
+      <ion-list no-lines no-margin>
+        <ion-item>
+          <ion-label>First Name</ion-label>
+          <ion-input type="text" name="text"  [(ngModel)]="User.user[0].users_firstname"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Last Name</ion-label>
+          <ion-input type="text" name="text"  [(ngModel)]="User.user[0].users_lastname"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="modal-footer">
+      <button ion-button float-right color="purple" (click)="saveProfile()">SAVE</button>
+      <button ion-button float-right color="white" (click)="closeModal(3)">CANCEL</button>
+    </div>
+  </div>
+</div>

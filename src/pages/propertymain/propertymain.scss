@@ -1,0 +1,73 @@
+propertymain {
+/* propertymain admin was suppose to be using the new white style schema, but we are sticking to the old one due to some inconveniences*/
+  .header{
+    .bar-button{
+      @include clear-shadow();
+    }
+    .toolbar-background{
+      /* new style for propertymain*/
+      @include background(map_get($Image, header));
+      @include box-shadow(0,-1px,4px);
+
+    }
+
+    .toolbar-content{
+      .toolbar-background{
+        @include clear-shadow();
+      }
+    }
+  }
+
+  .toolbar-title{
+         @include font(light,1.3em);
+         color:map_get($colors,primary);
+       }
+
+  .categoryGrid{
+        .pImageContainer{
+          /*new style
+          @include buttonBoxContainer();*/
+          /*old style*/
+          opacity:.60;
+
+        }
+    .pImageContainer.active{
+      /*old style*/
+      opacity:1;
+      /*
+              background:map_get($colors,propertyOverlay)!important;
+              @include box-shadow();
+              */
+            }
+    .categoryWriteUp{
+      color:map_get($colors,smoke);
+      @include font(regular,1em);
+      text-align:center;
+      .active{
+        color:map_get($colors,dark);
+
+      }
+    }
+     .pImageContainer:last-child{
+          @include buttonBoxContainer_lastChild();
+        }
+    @each $names,$value in $propertyIcons{
+      .fa-#{$names}{
+        @include buttonBox($value);
+      }
+    }
+  }
+  .propertyTitle{
+    @include  font(light,1.2em);
+    color:map_get($colors,primary);
+    margin:.5em .5em;
+  }
+  .propertySubTitle{
+    @include  font(light,1.2em);
+    color:map_get($colors,primary);
+  }
+
+  .back-button{
+    @include backbutton();
+  }
+}

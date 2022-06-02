@@ -1,0 +1,11 @@
+<ion-menu [content]="mycontent" type="reveal">
+    <ion-content *ngIf="Menu.length>0">
+        <ion-list class="new-menu" no-lines>
+            <button ion-item *ngFor="let m of Menu" [attr.name]="m.name" (click)="openPage(m.component)" detail-none>
+                <img src="assets/img/icons/menu/{{m.icon}}">
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

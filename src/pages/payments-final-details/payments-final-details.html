@@ -1,0 +1,63 @@
+<ion-content>
+    
+   <custom-header [header]="header_data"></custom-header>
+   
+   <form>
+     <div class="b-header">
+       <div class="pb-select">
+         <ion-item no-lines>
+           <ion-select name="month" [(ngModel)]="month">
+             <ion-option value="1">January</ion-option>
+             <ion-option value="2">February</ion-option>
+             <ion-option value="3">March</ion-option>
+             <ion-option value="4">April</ion-option>
+             <ion-option value="5">May</ion-option>
+             <ion-option value="6">June</ion-option>
+             <ion-option value="7">July</ion-option>
+             <ion-option value="8">August</ion-option>
+             <ion-option value="9">September</ion-option>
+             <ion-option value="10">October</ion-option>
+             <ion-option value="11">November</ion-option>
+             <ion-option value="12">December</ion-option>
+           </ion-select>
+         </ion-item>
+       </div>
+  
+       <h1>2985708 <span class="dk">د.ك</span></h1>
+       <p>Total amount paid</p>
+  
+       <h2>57272 <span class="dk">د.ك</span></h2>
+       <p>Pending amount</p>
+     </div>
+   </form>
+
+   <div class="data">
+     <ion-grid>
+       <ion-row>
+         <ion-col col-md-6>Transaction History</ion-col>
+         <ion-col col-md-6 text-right>
+           <ion-item no-lines>
+             <ion-select placeholder="Sort By" class="other-icon" name="sort_by" [(ngModel)]="sort_by">
+               <ion-option value="name">Name</ion-option>
+               <ion-option value="amount">Amount</ion-option>
+               <ion-option value="status">Status</ion-option>
+             </ion-select>
+           </ion-item>
+         </ion-col>
+       </ion-row>
+     </ion-grid>
+     <ion-list no-lines>
+       <button ion-item *ngFor="let d of data" detail-none>
+         <div float-right class="amount">{{d.amount}} <span class="dk">د.ك</span></div>
+         <b>{{d.name}}</b>
+         <div class="sub">
+           <span class="date">{{d.date}}</span> <span class="via">via</span> <span class="payment-method">{{d.method}}</span>
+           <div class="paid-by">
+             <span class="text">Paid by</span> <span class="name">{{d.paid_by}}</span>
+           </div>
+         </div>
+       </button>
+     </ion-list>
+   </div>
+  
+</ion-content>

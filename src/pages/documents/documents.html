@@ -1,0 +1,76 @@
+<ion-content>
+    
+   <ion-header class="header2 no-shadow">
+     <ion-navbar>
+         <ion-title>
+           Documents
+         <!--  <button ion-button="bar-button" (click)="goBack()" class="icb btn-back pull-left" left><img src="assets/img/icons/back-arrow2@2x.png"></button>-->
+      
+        <button ion-button="bar-button" menuToggle class="icb btn-menu block" float-right><img src="assets/img/icons/if-menu-926652@2x.png"></button>
+         </ion-title> 
+     </ion-navbar>
+   </ion-header>
+   <div class="b-header" text-center>
+      <div class="options">
+        <table width="100%" height="100%">
+          <tr>
+            <td width="55%" valign="top">
+              <ion-item>
+                <ion-label><img src="assets/img/icons/search.png" class="icon"></ion-label>
+                <ion-input [(ngModel)]="searchTerm" (input)="setFilteredItems()" text-center type="search" value="Lease"></ion-input>
+              </ion-item>
+              <ion-grid class="actions npL npR">
+                <ion-row class="npL npR">
+                  <ion-col *ngFor="let a of actions">
+                    <button [attr.class]="a.class" (click)="changeList(a)">
+                      <img src="assets/img/icons/{{a.icon}}">
+                    </button>
+                  </ion-col> 
+                </ion-row>
+              </ion-grid>
+            </td>
+            <td width="20%" text-center>
+              <div class="in">
+                in
+              </div>
+            </td>
+            <td width="25%" valign="top">
+              <ion-item text-right>
+                <ion-select float-right>
+                  <ion-option selected>Lease</ion-option>
+                  <ion-option>Val 2</ion-option>
+                </ion-select>
+              </ion-item>
+              <ion-item margin-top text-right no-lines>
+                <ion-select class="no-lines" float-right>
+                  <ion-option selected>FILTERS</ion-option>
+                  <ion-option>Val 1</ion-option>
+                  <ion-option>Val 2</ion-option>
+                </ion-select>
+              </ion-item>
+            </td>
+          </tr>
+        </table>
+      </div>
+   </div>
+   
+   <div class="mpdB">
+     <ion-list *ngIf="list_type == 'items'">
+       <button ion-item *ngFor="let i of searchList" [attr.w-list]="i.icon ? 'true' : 'false'">
+           <div [attr.class]="i.icon ? 'w-list' : ''"><img src="assets/img/pages/documents/pdf@2x.png" *ngIf="i.icon"> <h2>{{i.title}}</h2></div>
+       </button>
+     </ion-list>
+  
+     <ion-grid *ngIf="list_type == 'col'">
+       <ion-row class="cols">
+         <ion-col col-4 *ngFor="let i of searchList" text-center>
+           <img src="assets/img/pages/documents/pdf@2x.png">
+           <b>{{i.title}}</b>
+         </ion-col>
+       </ion-row>
+     </ion-grid>
+   </div>
+
+   <button class="footer-btn">ADD</button>
+  
+</ion-content>

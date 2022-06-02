@@ -1,0 +1,405 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+
+                primary:    #332944,
+                secondary:  #332944,
+                danger:     #d0011b,
+                light:      #f4f4f4,
+        dark:       #222,
+smoke:      #8A858D,
+  lightGreen: #D1F3F3,
+  success:    #68C7B7,
+  orange:     #F5A623,
+  white:      #fff,
+  graywhite:       #f4f4f4,
+  gradientdark: #C5DED9,
+  gradientlight:#DBE9E3,
+  ActivePagination: #4A90E2,
+  purple:           #7367c7,
+  propertyOverlay: #D4CD91
+);
+
+@function  map_deep_get($maps,$exists,$key){
+  @each $keys,$values in $maps{
+    @if ($exists==$key){
+      @return map_get($values,$key);
+    }
+  }
+}
+$imageAssetLoc:'../assets/dev/';
+$Image:(
+  dark: $imageAssetLoc+'background.png',
+  light: $imageAssetLoc+'lightBackground.png',
+  bigLogo:$imageAssetLoc+'logo.png',
+  smallLogo:$imageAssetLoc+'shortLogo.png',
+  purple:$imageAssetLoc+'purpleBackground.png',
+  header:$imageAssetLoc+'headerBg.png',
+  goodsign:$imageAssetLoc+'goodsign.png',
+  thumb:$imageAssetLoc+'oval.png',
+  adduser:$imageAssetLoc+'add_user.png',
+  plus:$imageAssetLoc+'plus.png'
+);
+
+@mixin background($image){
+  background-image:url($image) !important;
+  background-repeat:no-repeat !important;
+  background-size:100% 100% !important;
+}
+
+$fontAssetLoc:'../assets/fonts/';
+$fonts :(
+  bold:$fontAssetLoc+'opensans/OpenSans-Bold.ttf',
+  bolditalic:$fontAssetLoc+'opensans/OpenSans-BoldItalic.ttf',
+  extrabold:$fontAssetLoc+'opensans/OpenSans-ExtraBold.ttf',
+  extrabolditalic:$fontAssetLoc+'opensans/OpenSans-ExtraBoldItalic.ttf',
+  italic:$fontAssetLoc+'opensans/OpenSans-Italic.ttf',
+  light:$fontAssetLoc+'opensans/OpenSans-Light.ttf',
+  lightitalic:$fontAssetLoc+'opensans/OpenSans-LightItalic.ttf',
+  regular:$fontAssetLoc+'opensans/OpenSans-Regular.ttf',
+  semibold:$fontAssetLoc+'opensans/OpenSans-Semibold.ttf',
+  semibolditalic:$fontAssetLoc+'opensans/OpenSans-SemiboldItalic.ttf',
+  allura:$fontAssetLoc+'allura.ttf'
+);
+
+
+$propertyIcons:(
+  Residential:$imageAssetLoc+'residential.png',
+  Commercial:$imageAssetLoc+'Commercial.png',
+  Industrial:$imageAssetLoc+'Industrial.png',
+  Individual:$imageAssetLoc+'individual.png',
+  Apartment:$imageAssetLoc+'apartment.png',
+  Store:$imageAssetLoc+'Store.png',
+  Warehouses:$imageAssetLoc+'warehouse.png',
+  Warehouse:$imageAssetLoc+'warehouse.png',
+  Manufacturers:$imageAssetLoc+'Manufacturers.png',
+  Stores:$imageAssetLoc+'office-block.png'
+);
+@each $fontnames,$url in $fonts{
+@font-face {
+  font-family: $fontnames;
+  src: url($url);
+}
+}
+$buttons:(
+  facebook:$imageAssetLoc+'facebook.png',
+  google:$imageAssetLoc+'google.png',
+  greenBtn:$imageAssetLoc+'greenButton.png',
+  grayBtn:$imageAssetLoc+'grayButton.png',
+  whiteBtn:$imageAssetLoc+'whiteButton.png',
+  back_arrow:$imageAssetLoc+'back_arrow.png',
+  indicator:$imageAssetLoc+'indicator.png',
+  otpimage:$imageAssetLoc+'otpMsg.png',
+  smile:$imageAssetLoc+'smile.png',
+  hand:$imageAssetLoc+'hand.png',
+  house:$imageAssetLoc+'house.png'
+);
+
+@mixin font($type,$size){
+
+  font-family:$type;
+  font-size:$size;
+};
+
+@mixin sLogo($width,$placement,$height:35px){
+ background:url(map_get($Image,smallLogo)) no-repeat;
+  background-size:100%;
+  width:$width;
+  height:$height;
+  margin:$placement;
+}
+@mixin bLogo($width,$placement,$height:35px){
+  background:url(map_get($Image,bigLogo)) no-repeat center;
+  background-size:100% $height;
+  width:$width;
+  height:$height + 5px;
+  margin:$placement;
+}
+
+@mixin button($buttonType,$width,$height,$margin:auto auto){
+  background:url($buttonType) transparent no-repeat center;
+  background-size:100% $height;
+  margin:$margin;
+  margin-right:auto;
+  margin-left:auto;
+  position:static !important;
+  display:table;
+
+  min-width:$width;
+  height:$height;
+  width: $width;
+  text-align: center;
+  border:none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+
+
+@mixin hide(){
+  display:none;
+}
+@mixin clear(){
+  clear:both;
+}
+
+//text in center of line
+@mixin TextLine($width,$color,$margin:10px 0 20px){
+  width:$width;
+  text-align: center;
+  border-bottom: 1px solid $color;
+  line-height: 0.1em;
+  display:table;
+  position:static;
+  margin: $margin;
+  margin-right:auto;
+  margin-left:auto;
+}
+@mixin TextLineLater($background,$color){
+  padding:0 10px;
+  color:$color;
+  background-color:$background;
+}
+//via email portion
+@mixin viaEmail($fontsizeSmall,$font:bold,$color:light){
+  @include font($font,$fontsizeSmall);
+  text-align:center;
+  color:map_get($colors,$color);
+}
+@mixin viaEmailLater($fontSize,$font:regular,$color:light,$style:underline){
+  @include font($font,$fontSize);
+  color:map_get($colors,$color);
+  text-decoration:$style;
+}
+//app header
+@mixin parentHeader($margin){
+  margin: $margin;
+}
+@mixin header($background,$border,$color:light){
+  background:$background;
+  border:$border !important;
+  color:map_get($colors,$color);
+}
+@mixin OtpInput($border,$padding){
+  height:4em;
+  width:4em;
+  border:$border;
+  padding:$padding;
+  margin:0 auto;
+
+}
+
+@mixin align($type){
+  text-align:$type;
+}
+
+@mixin buttonBoxContainer_lastChild(){
+  border-right:none;
+}
+@mixin box-shadow($vertical:-2px, $horizontal:-2px,$blur: 1px,$color: map_get($colors,smoke)){
+  -webkit-box-shadow: inset $vertical $horizontal $blur $color;
+  -moz-box-shadow: inset $vertical $horizontal $blur $color;
+  box-shadow: inset $vertical $horizontal $blur $color;
+}
+@mixin buttonBox($image,$width:4em,$height:4em,$margin:1em auto){
+  @include button($image,$width,$height,$margin);
+}
+
+@mixin buttonBoxContainer(){
+  border-right:1px solid map_get($colors,smoke);
+  border-bottom:1px solid map_get($colors,smoke);
+  @include box-shadow(0,-1px,1px);
+
+}
+
+@mixin clear-shadow(){
+  -webkit-box-shadow:none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+@mixin backbutton(){
+  color:map_get($colors,light);
+  @include button(map_get($buttons,back_arrow),30px,20px !important,0px 0px 0px 2em);
+  margin-left:.4em;
+  .back-button-text,.button-inner{
+    @include hide();
+  }
+}
+
+@mixin rangeThumb(){
+  -webkit-appearance: none;
+  border: 1px solid map_get($colors,orange);
+  height: 16px;
+  width: 16px;
+  @include border-radius(50px);
+  background:map_get($colors,purple);
+  cursor: pointer;
+  position:relative;
+  top:9px;
+  margin-top: -16px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+
+}
+@mixin clearRange(){
+    input[type=range] {
+      -webkit-appearance: none;
+      background: transparent;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+    input[type=range]:focus {
+      outline: none;
+    }
+    input[type=range]::-ms-track {
+      width: 100%;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+}
+
+@mixin rangeRunnable(){
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+
+  background:linear-gradient(to left, map_get($colors,light),map_get($colors,smoke));
+  @include border-radius(10px);
+  border: 1px solid map_get($colors,smoke);
+}
+
+
+
+@mixin CustomRange() {
+  input[type=range]::-webkit-slider-thumb {
+    @include rangeThumb();
+  }
+
+  input[type=range]::-webkit-slider-runnable-track {
+    @include rangeRunnable()
+  }
+  input[type=range]::-moz-range-thumb {
+    @include rangeThumb();
+  }
+  input[type=range]::-ms-thumb {
+    @include rangeThumb();
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    @include rangeRunnable()
+  }
+
+  input[type=range]::-moz-range-track {
+    @include rangeRunnable()
+  }
+
+  input[type=range]::-ms-track {
+    @include rangeRunnable()
+  }
+
+  input[type=range]::-ms-fill-lower {
+    @include rangeRunnable()
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    @include rangeRunnable()
+  }
+  input[type=range]::-ms-fill-upper {
+    @include rangeRunnable()
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    @include rangeRunnable()
+  }
+}
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
+$text-input-md-show-focus-highlight: false !default;
+$text-input-md-show-valid-highlight: $text-input-md-show-focus-highlight !default;
+$text-input-md-show-invalid-highlight: $text-input-md-show-focus-highlight !default;
+
+$text-input-highlight-color-valid: #332944;
+$item-md-detail-push-show: true;
+$item-md-detail-push-color: #6a6e7c;
+$item-ios-detail-push-color: #6a6e7c;
+$item-wp-detail-push-color: #6a6e7c;
+$item-wp-detail-push-show: true;
+$menu-width: 66px;
+$menu-small-width: 66px;

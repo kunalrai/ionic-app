@@ -1,0 +1,109 @@
+page-messages
+{
+  .tabs
+  {
+    margin-top: 10px;
+    .grid
+    {
+      padding-right: 0;
+      padding-left: 0;
+      padding-bottom: 0;
+      .col
+      {
+        cursor: pointer;
+        font-weight: 600;
+        color: #9b9b9b;
+        text-transform: uppercase;
+      }
+      .col.active
+      {
+        background: #4a4a4a;
+        color: #fff;
+      }
+    }
+  }
+  .messages
+  {
+    .item-inner
+    {
+      border-bottom: 1px solid rgba(155, 155, 155, 0.49) !important;
+    }
+    .item:first-child
+    {
+      border-top: 1px solid rgba(155, 155, 155, 0.49);
+    }
+    .item:last-child
+    {
+      border-bottom: 1px solid rgba(155, 155, 155, 0.49);
+    }
+    .item:last-child .item-inner
+    {
+      border-bottom: 0 !important;
+    }
+    .item
+    {
+      .avatar
+      {
+        width: 90px;
+        margin: 0 !important;
+        height: 92px;
+        position: relative;
+        background-color: #aaa;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        .on_off
+        {
+          position: absolute;
+          background: rgba(0,0,0,0.5);
+          width: 100%;
+          bottom: 0;
+          text-transform: uppercase;
+          font-size: 10px;
+          font-weight: 600;
+          padding: 5px 10px;
+          letter-spacing: 0.2px;
+          color: #fff;
+          .sts
+          {
+            width: 9px;
+            height: 9px;
+            background: #fff;
+            display: block;
+            float: left;
+            margin-right: 8px;
+            border-radius: 50%;
+            margin-top: 3px;
+          }
+          .sts.on
+          {
+            background: #7ed321;
+          }
+          .sts.off
+          {
+            background: #d0011b;
+          }
+        }
+      }
+      .date
+      {
+        color: #9b9b9b;
+        font-size: 11px;
+        float: right;
+        margin-top: 5px;
+      }
+      .new
+      {
+        color: #f6a623;
+        font-size: 12px;
+        float: right;
+        margin-right: 3px;
+      }
+    }
+    .item[new="true"]
+    {
+      border-right: 4px solid #f6a623;
+    }
+  }
+}

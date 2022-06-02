@@ -1,0 +1,96 @@
+<ion-content>
+    
+   <custom-header [header]="header_data"></custom-header>
+  
+  <form> 
+   <div class="s-header user" style="background-image: url(assets/img/pages/settings/bitmap@3x.jpg)">
+     <table width="100%">
+       <tr>
+         <td valign="top" width="45">
+           <div class="icon-o"></div>
+         </td>
+         <td valign="top">
+           <div class="name">{{user.name}}</div>
+           <div class="profession">{{user.profession}}</div>
+           <ion-list class="contact" no-lines>
+             <ion-item>
+               <div item-start>
+                 <img src="assets/img/icons/mobile-phone@2x.png" />
+               </div>
+               <ion-label>{{user.phone}}</ion-label>
+               <ion-checkbox name="phone" [(ngModel)]="fields.phone" checked item-right></ion-checkbox>
+             </ion-item>
+             <ion-item>
+                <div item-start>
+                  <img src="assets/img/icons/email@2x.png" />
+                </div>
+               <ion-label>{{user.email}}</ion-label>
+               <ion-checkbox name="email" [(ngModel)]="fields.email" disabled checked item-right></ion-checkbox>
+             </ion-item>
+           </ion-list>
+         </td>
+       </tr>
+     </table>
+   </div>
+
+   <ion-list class="settings">
+
+     <ion-item>
+       <div item-start class="s-icon notifications">
+         <img src="assets/img/icons/bell@2x.png">
+       </div>
+       <label>Notifactions</label>
+       <div item-end>
+         <p class="btn-switch">         
+           <input type="radio" value="no" id="no-notifications-{{time}}" name="notifications" [(ngModel)]="fields.notifications" class="btn-switch__radio btn-switch__radio_no" />
+           <input type="radio" value="yes" id="yes-notifications-{{time}}" name="notifications" [(ngModel)]="fields.notifications" class="btn-switch__radio btn-switch__radio_yes" />
+           <label for="no-notifications-{{time}}" class="btn-switch__label btn-switch__label_no"><span class="btn-switch__txt" text-center><ion-icon name="close"></ion-icon></span></label>
+           <label for="yes-notifications-{{time}}" class="btn-switch__label btn-switch__label_yes"><span class="btn-switch__txt" text-center><ion-icon name="checkmark"></ion-icon></span></label>
+         </p>
+       </div>
+     </ion-item>
+     <ion-item>
+       <div item-start class="s-icon localization">
+         <img src="assets/img/icons/panel@2x.png">
+       </div>
+       <label>Localization</label>
+       <div item-end>
+         <p class="btn-switch">         
+           <input type="radio" value="no" id="no-localization-{{time}}" name="localization" [(ngModel)]="fields.localization" class="btn-switch__radio btn-switch__radio_no" />
+           <input type="radio" value="yes" id="yes-localization-{{time}}" name="localization" [(ngModel)]="fields.localization" class="btn-switch__radio btn-switch__radio_yes" />
+           <label for="no-localization-{{time}}" class="btn-switch__label btn-switch__label_no"><span class="btn-switch__txt" text-center><ion-icon name="close"></ion-icon></span></label>
+           <label for="yes-localization-{{time}}" class="btn-switch__label btn-switch__label_yes"><span class="btn-switch__txt" text-center><ion-icon name="checkmark"></ion-icon></span></label>
+         </p>
+       </div>
+     </ion-item>
+     <ion-item>
+       <div item-start class="s-icon public-profile">
+         <img src="assets/img/icons/verification-symbol-of-a-man@2x.png">
+       </div>
+       <label>Public Profile</label>
+       <div item-end>
+         <p class="btn-switch">         
+           <input type="radio" value="no" id="no-public-profile-{{time}}" name="public_profile" [(ngModel)]="fields.public_profile" class="btn-switch__radio btn-switch__radio_no" />
+           <input type="radio" value="yes" id="yes-public-profile-{{time}}" name="public_profile" [(ngModel)]="fields.public_profile" class="btn-switch__radio btn-switch__radio_yes" />
+           <label for="no-public-profile-{{time}}" class="btn-switch__label btn-switch__label_no"><span class="btn-switch__txt" text-center><ion-icon name="close"></ion-icon></span></label>
+           <label for="yes-public-profile-{{time}}" class="btn-switch__label btn-switch__label_yes"><span class="btn-switch__txt" text-center><ion-icon name="checkmark"></ion-icon></span></label>
+         </p>
+       </div>
+     </ion-item>
+     <button ion-item>
+       <div item-start class="s-icon privacy-policy">
+         <img src="assets/img/icons/door@2x.png">
+       </div>
+       <label>Privacy Policy</label> 
+     </button>
+     <button ion-item no-icon>
+       <div item-start class="s-icon unlock-app">
+         <img src="assets/img/icons/unlock-padlock-symbol@2x.png">
+       </div>
+       <label>Unlock App</label> 
+     </button>
+
+   </ion-list>
+   </form>
+  
+</ion-content>

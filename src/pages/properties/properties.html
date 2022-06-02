@@ -1,0 +1,180 @@
+<ion-content>
+  <custom-header [header]="header_data"></custom-header>
+
+  <div class="page-title">
+    <h1>
+      {{property.property.property_name}}
+      <span class="amount"><span class="dk">د.ك</span> {{property.property.property_price}}/mo</span>
+    </h1>
+    <p>{{property.property.property_address}}<br>{{property.property.property_city}}
+      <span class="lease-ends">Lease ends in <b>4 months</b></span>
+    </p>
+  </div>
+
+  <div class="head-images">
+    <ion-slides class="user-images-slider" pager="false" slidesPerView="3" loop>
+      <ion-slide *ngFor="let item of property.image">
+        <div class="slider-bg" [ngStyle]="{'background-image': 'url('+config.url+item.image_path+')'}"></div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="s-title">Next rent in</div>
+  <div class="slide-days">
+    <ion-range [(ngModel)]="days" min="1" max="30">
+      <h4 range-left small name="sunny">{{days}} day<span *ngIf="days > 1">s</span></h4>
+    </ion-range>
+  </div>
+
+  <div class="s-title">Tenants</div>
+  <div style=" background: #f4f4f4;" class="users">
+    <ion-grid  style="
+    width: 102%;
+    padding-left: 0px;
+    padding-bottom: inherit;" >
+
+
+
+      <ion-row responsive-sm wrap >
+        <ion-col col-6 style="    border-right: 1.3px  solid #d4e3e4;border-bottom: 1.3px  solid #d4e3e4;" *ngFor="let item of property.invitations; let index=index">
+          <div class="block" [class]="selectedUser==item.users_id?'selected':''" (click)="selectedUser=item.users_id" text-center>
+            <div     style="padding-top: 35px;" class="img">
+              <img  style="max-width: 50%;  border: 0; border-radius: 75%; min-height: 100px;max-height: 100px;" src="./assets/img/anonymousUser.png" *ngIf="!item.image_path">
+              <img style=" max-width: 50%; border: 0; border-radius: 75%;min-height: 100px;max-height: 100px;" src="{{config.url}}{{item.image_path}}" *ngIf="item.image_path">
+
+            </div>
+            <div style="font-size:large;font-weight:bold" class="name">
+              {{item.users_firstname}}
+            </div>
+            <div  style="font-size:small;padding-bottom:30px;" class="state" *ngIf="item.users_work">
+              {{item.users_work}}
+            </div>
+            <div   style="font-size:small;padding-bottom:30px;" class="state" *ngIf="!item.users_work">
+              No work
+            </div>
+           
+
+
+          </div>
+          
+       
+        </ion-col>
+        <div style="width:100%;    background: #d4e2e3; " class="col"   >
+            <button  class="add-properties1"  style="width:100%;height:100%" large>
+                
+                    <ion-icon name="ios-add-circle-outline" role="img" class="icon icon-md ion-ios-add-circle-outline" aria-label="add circle-outline" ng-reflect-name="ios-add-circle-outline"></ion-icon>
+                
+                  </button>
+            </div>
+      </ion-row>
+     
+
+
+
+    </ion-grid>
+ 
+  </div> 
+
+
+
+
+  <!-- <div class="s-title">Tentants</div>
+  <div class="users">
+    <ion-grid no-padding>
+
+
+      <ion-row no-padding>
+
+
+        
+
+            <ion-col style="    border-left: 1.3px solid #d4e3e4; " *ngFor="let item of property.invitations; let index=index">
+                <div class="block" [class]="selectedUser==item.users_id?'selected':''" (click)="selectedUser=item.users_id" text-center>
+                  <div     style="padding-top: 20px;" class="img">
+                    <img  style="max-width: 50%;  border: 0; border-radius: 75%;" src="./assets/img/anonymousUser.png" *ngIf="!item.image_path">
+                    <img style="max-width: 50%;  border: 0; border-radius: 75%;" src="{{config.url}}{{item.image_path}}" *ngIf="item.image_path">
+      
+                  </div>
+                  <div style="font-size:large;font-weight:bold" class="name">
+                    {{item.users_firstname}}
+                  </div>
+                  <div  style="font-size:small;" class="state" *ngIf="item.users_work">
+                    {{item.users_work}}
+                  </div>
+                  <div   style="font-size:small;" class="state" *ngIf="!item.users_work">
+                    No work
+                  </div>
+                </div>
+              </ion-col>
+
+
+
+
+
+      </ion-row>
+
+
+
+    </ion-grid>
+  </div>
+   -->
+
+
+  
+  <div class="s-title">Pending Amount</div>
+  <div class="block price">
+    <span class="dk">د.ك</span> {{property.property.property_price}}
+  </div>
+
+  <div class="s-title">Amount paid this year</div>
+  <div class="block price black">
+    <span class="dk">د.ك</span> 0
+    <span float-right class="last-payment">Last Payment - None </span>
+  </div>
+
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col col-6 start>
+      <span float-left class="s-title">Lease Period</span>
+    </ion-col>
+    <ion-col col-6 end>
+        <span float-right style="color:rgb(0, 81, 255);font-size:smaller;" class="s-title">Tap on date's to edit </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <div  class="s-title" >
+<span float-left >Lease Period</span>
+<span float-right style="color:rgb(0, 81, 255); font-size:smaller;" >Tap on date's to edit</span>
+
+
+
+  </div>
+
+  
+
+  <div>
+     
+         <ion-grid     style="padding-top: 9px;"><ion-row     style="background: #f4f4f4;">
+           <ion-col col-5>
+          <ion-datetime style="font-size:15px;text-align:center;" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="startDate" (ionChange)="getData()" ></ion-datetime>
+        </ion-col>     
+        <ion-col align="center" style="padding-top:15px" col-2>
+           <span style="font-size:12px;">to</span>
+          </ion-col>  
+          <ion-col col-5>
+              <ion-datetime   style="font-size:15px;text-align:center;" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="endDate" (ionChange)="getData()"></ion-datetime>
+            </ion-col>    
+        </ion-row></ion-grid>
+  </div>
+
+  <table width="100%" class="btns-footer">
+    <tr>
+      <td width="48.5%"><button class="btn-cc" (click)="OpenInvoice(1)">INVOICE</button></td>
+      <td width="1%"></td>
+      <td width="48.5%"><button class="btn-cc" (click)="OpenChat()">MESSAGE</button></td>
+    </tr>
+  </table>
+
+</ion-content>

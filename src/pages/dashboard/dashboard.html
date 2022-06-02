@@ -1,0 +1,40 @@
+<ion-content>
+
+   <custom-header [header]="header_data"></custom-header>
+   
+   <div class="pd" padding>
+   	    <div class="graph-header">
+        	  <h1>Cash Flow</h1>
+        	  <table width="100%">
+        	  	<tr>
+        	  		<td width="20%" class="td-select">
+        	  			<ion-item no-lines class="item-select">
+                    <ion-label stacked>Ending Balance</ion-label>
+                    <ion-select>
+                      <ion-option selected>June 2016</ion-option>
+                      <ion-option>Jul 2016</ion-option>
+                      <ion-option>Aug 2016</ion-option>
+                      <ion-option>Sep 2016</ion-option>
+                    </ion-select>
+                  </ion-item>
+        	  		</td>
+        	  		<td text-right class="statis">
+        	  			<span class="dk">د.ك</span> 13,800.00
+        	  		</td>
+        	  	</tr>
+        	  </table>
+        </div>
+
+        <div id="graph">
+        	<chart [options]="options"></chart>
+        </div>
+
+   </div>
+   <div class="g-footer">
+   	Cash on 16 July 2017<br>
+   	<span class="sp">
+   		<span class="dk">د.ك</span> 12,000
+   	</span>
+   </div>
+  
+</ion-content>

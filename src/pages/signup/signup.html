@@ -1,0 +1,90 @@
+<ion-content style="background:none;">
+  <ion-header>
+
+    <ion-navbar>
+      <ion-title>
+        <button ion-button="bar-button" navPop class="icb btn-back pull-left"><img src="assets/img/icons/back-arrow@2x.png"></button>
+        Sign Up
+      </ion-title>
+    </ion-navbar>
+
+  </ion-header>
+  <form  name="regform" [formGroup]="registerForm" (submit)="signupNow()" class="form">
+
+    <ion-list>
+
+      <ion-item no-lines class="radio-b">
+        <ion-grid no-padding>
+          <ion-row no-padding>
+            <ion-col>
+              <h1>I am a Landlord</h1>
+            </ion-col>
+            <ion-col text-right no-padding>
+              <p class="btn-switch">
+                <input type="radio" id="no-{{time}}" name="switch" class="btn-switch__radio btn-switch__radio_no" value="0" (change)="setPerm(false)">
+                <input type="radio" checked id="yes-{{time}}" name="switch" class="btn-switch__radio btn-switch__radio_yes" value="1" (change)="setPerm(true)"/>
+                <label for="no-{{time}}" class="btn-switch__label btn-switch__label_no"><span class="btn-switch__txt" text-center><ion-icon name="close"></ion-icon></span></label>
+                <label for="yes-{{time}}" class="btn-switch__label btn-switch__label_yes"><span class="btn-switch__txt" text-center><ion-icon name="checkmark"></ion-icon></span></label>
+              </p>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-item >
+        <ion-label color="primary" class="in-label" floating>First Name</ion-label>
+        <ion-input type="text"  formControlName="firstname" name="firstname" required></ion-input>
+      </ion-item>
+      <span class="invalid_input" [hidden]="(registerForm.controls['firstname'].valid==true || registerForm.controls['firstname'].pristine==true)">Firstname must be greater than 3 characters!</span>
+
+
+      <ion-item>
+        <ion-label color="primary" class="in-label" floating>Last Name</ion-label>
+        <ion-input type="text" formControlName="lastname" name="lastname" required></ion-input>
+      </ion-item>
+      <span class="invalid_input" [hidden]="(registerForm.controls['lastname'].valid==true || registerForm.controls['lastname'].pristine==true)">lastname must be greater than 3 characters!</span>
+
+      <ion-item>
+        <ion-label color="primary" class="in-label" floating>Email</ion-label>
+        <ion-input type="email"  name="email" formControlName="email" required></ion-input>
+      </ion-item>
+      <span class="invalid_input" [hidden]="(registerForm.controls['email'].valid==true || registerForm.controls['email'].pristine==true)">Invalid email!</span>
+
+      <ion-item>
+        <ion-label color="primary" class="in-label" floating>Confirm Email</ion-label>
+        <ion-input type="email"  name="email2" formControlName="email2" required></ion-input>
+      </ion-item>
+      <span class="invalid_input" [hidden]="(registerForm.controls['email2'].value==registerForm.controls['email'].value || registerForm.controls['email2'].pristine==true)">Email and confirm email does not match!!</span>
+
+      <ion-item>
+        <ion-label color="primary" class="in-label" floating>Mobile Number ( Optional )</ion-label>
+        <ion-input type="tel"  formControlName="mobile" name="mobile"></ion-input>
+      </ion-item>
+
+
+      <ion-label style="margin-top: 7px;font-size:12px;margin-bottom: 0;">
+        <ion-checkbox [disabled]="!registerForm.controls['mobile'].value" formControlName="isMobileVerification" name="isMobileVerification" float-left style="margin-right:5px;"></ion-checkbox> Use for verification
+      </ion-label>
+
+      <ion-item>
+        <ion-label color="primary" class="in-label" floating>Password</ion-label>
+        <ion-input type="password" formControlName="password" name="password" required></ion-input>
+      </ion-item>
+      <span class="invalid_input" [hidden]="(registerForm.controls['password'].valid==true || registerForm.controls['password'].pristine==true)">Password must be greater than 5 characters!</span>
+
+
+      <ion-item padding-top no-lines>
+        <button class="btn full" type="submit" [disabled]="!registerForm.valid">SIGN UP</button>
+      </ion-item>
+
+      <div text-center class="txt-footer">
+        <span>Already User?</span> <button class="icb signin" type="button" no-margin no-padding  (click)="Goto('login')">SIGN IN</button>
+      </div>
+
+    </ion-list>
+
+
+
+  </form>
+</ion-content>

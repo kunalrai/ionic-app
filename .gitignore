@@ -1,0 +1,7 @@
+node_modules
+platforms
+.idea
+www
+plugins
+GoogleService-Info.plist
+Certificates.cer

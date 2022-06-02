@@ -1,0 +1,63 @@
+page-intro1 .header
+{
+  padding-top: 30%;
+}
+page-intro1 .swiper-container
+{
+  padding-bottom: 40px;
+}
+page-intro1 .swiper-pagination
+{
+  bottom: 0 !important;
+  padding: 20px 0;
+  background: #fff;
+  box-shadow: 0 12.5px 100.5px 0 rgba(64, 57, 114, 0.22);
+}
+page-intro1 .slide-buttons
+{
+  position: absolute;
+  z-index: 10;
+  bottom: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 20px;
+}
+page-intro1 .skip
+{
+  color: #4a4a4a;
+  left:40px;
+}
+page-intro1 .next
+{
+  color: #f6a623;
+  right:40px;
+}
+page-intro1 .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  height: 10px;
+  width: 10px;
+}
+page-intro1 .slide-img
+{
+  margin-bottom: 30%;
+}
+page-intro1 .swiper-slide
+{
+  padding-bottom: 60px;
+  overflow: auto;
+}
+page-intro1 .slide-content
+{
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding-bottom: 60px;
+}
+page-intro1 .slide-footer-text
+{
+  color: #9b9b9b;
+  padding: 0 30px;
+  font-size: 17px;
+  font-weight: 300;
+}

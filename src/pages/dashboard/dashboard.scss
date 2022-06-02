@@ -1,0 +1,95 @@
+page-dashboard
+{
+  .graph-header{
+    margin-top: 10px;
+    h1
+    {
+      font-size: 22px;
+      color:#080043;
+      font-weight: 600;
+      margin-bottom: 0px;
+    }
+    .item-select
+    {
+      .item-inner,
+      .input-wrapper
+      {
+        padding: 0;
+      }
+    }
+    .item-label-stacked
+    {
+      .label 
+      {
+        color: #4990e2;
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0;
+        margin-top: 5px;
+      }
+      .select
+      {
+        padding-bottom: 0;
+        color: #4990e2;
+        font-size: 13px;
+        font-weight: 600;
+        padding-top: 3px;
+        .select-icon .select-icon-inner {
+            border-top: 8px solid;
+            border-right: 4px solid transparent;
+            border-left: 4px solid transparent;
+            color: #4990e2;
+        }
+      }
+    }
+    .td-select
+    {
+      vertical-align: bottom;
+    }
+    .statis
+    {
+      font-weight: 600;
+      vertical-align: bottom;
+    }
+    .dk
+    {
+      display: -webkit-inline-box;
+      display: inline-block;
+    }
+  }
+  #graph
+  {
+    padding-top: 20px;
+    width: 100%;
+    chart {
+        width: 100% !important;
+        display: block;
+        padding-right: 0;
+    }
+    .highcharts-container 
+    {
+          margin-left: -10px;
+    }
+  }
+  .g-footer
+  {
+    padding: 15px 0;
+    text-align: center;
+    background: #8692ba;
+    font-size: 12px;
+    color:#fff;
+    .sp
+    {
+       font-weight: 600;
+       color: #f8e81c;
+       font-size: 14px;
+       letter-spacing: 0.4px;
+       .dk
+       {
+         display: inline-block;
+         margin-right: 5px;
+         letter-spacing: 0.6px;
+       }
+    }
+  }
+}

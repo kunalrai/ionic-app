@@ -1,0 +1,39 @@
+<ion-content style="background:none;">
+  <ion-list>
+
+    <ion-item no-lines style="padding: 50px 0;">
+      <div class="ER3">EasyRent</div>
+    </ion-item>
+
+    <ion-item class="fb" text-center style="margin-top: 0;" no-lines>
+      <button class="icn" no-padding  (click)="facebookLogin()">
+        <img src="assets/img/pages/splash/social-buttons-by-dreamstale-2@2x.png">
+      </button>
+    </ion-item>
+
+    <ion-item class="gg" text-center no-lines>
+      <button class="icn" no-padding  (click)="googleLogin()">
+        <img src="assets/img/pages/splash/social-buttons-by-dreamstale-5@2x.png">
+      </button>
+    </ion-item>
+
+    <div style="padding:0 25px;">
+      <ion-item no-lines>
+        <div class="or">or</div>
+      </ion-item>
+
+      <ion-item class="via-Email" no-lines>
+        <span class="text-style-1">Via</span> <a href="#"  (click)="gotoEmail()" class="icb" color="primary" no-margin no-padding><b>Email</b></a>
+      </ion-item>
+
+      <ion-item no-lines>
+        <div class="or">or</div>
+      </ion-item>
+
+      <ion-item no-lines>
+        <button class="btn btn-2 full" (click)="guest_payment()">Pay as guest</button>
+      </ion-item>
+    </div>
+
+  </ion-list>
+</ion-content>

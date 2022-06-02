@@ -1,0 +1,632 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800';
+
+/* latin-ext */
+@font-face {
+  font-family: 'Allura';
+  font-weight: 400;
+  src: local('Allura Regular'), local('Allura-Regular'), url(../assets/fonts/Allura-Regular.otf);
+}
+
+@font-face {
+  font-family: 'GeezaPro';
+  src: local('GeezaPro Regular'), url('../assets/fonts/Geeza Pro Regular.ttf');
+}
+
+ion-app {
+  font-family: -apple-system, "Open Sans","Helvetica Neue", "Roboto", sans-serif !important;
+}
+.scroll-content
+{
+  overflow-y: auto !important;
+}
+.scroll-content:before {
+  position: initial !important;
+}
+ion-content
+{
+  position: static;
+}
+ion-content:before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  // background-image: radial-gradient(circle at 68% 39%, rgba(255,255,255,0.97), rgba(255, 255, 255, 0)); // usign css
+  background-image: url(../assets/img/bg/rectangle/2/rectangle-22@2x.png);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+ion-content:after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  // background-image: url(../assets/img/bg/rectangle/1/rectangle-22@2x.png); // usign image
+  background: -moz-linear-gradient(-45deg, #d5c177 0%, #4da8af 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #d5c177 0%,#4da8af 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #d5c177 0%,#4da8af 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5c177', endColorstr='#4da8af',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  z-index: -2;
+}
+.btn {
+  width: 250px;
+  height: 61.5px;
+  border-radius: 50px;
+  background-color: #3a415d;
+  box-shadow: inset 1px 1px 25px 0 rgba(0, 0, 0, 0.5);
+  color:#fff;
+  font-size: 20px;
+  font-weight: 400;
+  display: block;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.btn.full
+{
+  width: 100%;
+}
+.btn.w-auto
+{
+  width: auto;
+}
+.btn.btn-2
+{
+  background-color: #2dcfab;
+  box-shadow: none;
+}
+.header
+{
+  position: relative;
+}
+.header::after
+{
+  background-image: none;
+}
+.toolbar-background  {
+  border-color: none;
+  background: none;
+}
+.toolbar-title
+{
+  font-size: 36px;
+  font-weight: 300;
+  text-align: center;
+  padding-top: 10px;
+  color: #332944;
+}
+.icb
+{
+  background: none;
+  font-size: initial;
+}
+.btn-back
+{
+  position: absolute;
+  left: 20px;
+  top: 23px;
+}
+.btn-menu
+{
+  position: absolute;
+  right: 0px;
+  top: 23px;
+}
+.header2
+{
+  background-image: linear-gradient(to left, #d4e2e3, #f0ecdf);
+  box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.5);
+}
+ion-menu
+{
+  .item .item-inner{
+    border-color: #ddd !important;
+  }
+}
+.ios
+{
+  .is-header2
+  {
+    .range-knob
+    {
+      box-shadow: none;
+    }
+    .content
+    {
+      background-image: linear-gradient(to left, #d4e2e3, #f0ecdf) !important;
+      position: relative;
+      z-index: 1;
+    }
+    .content:before
+    {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: white;
+      top: 22px;
+    }
+    .content:after
+    {
+      background: none;
+    }
+  }
+  .header2
+  {
+    background-image: linear-gradient(to left, #d4e2e3, #f0ecdf);
+    box-shadow: none;
+    position: relative;
+    z-index: 1;
+
+
+  }
+  .header2:before
+  {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    -webkit-box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 13px -8px rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    z-index: -1;
+    margin: 0 -5%;
+  }
+}
+.header2 .toolbar-title {
+  font-size: 21px;
+  padding: 8px 0;
+  line-height: 36px;
+  height: 57px;
+}
+.header2 .btn-menu
+{
+  top: 10px;
+}
+.header2 .btn-back
+{
+  top: 11px;
+}
+.header2 .btn-back {
+  left: 13px;
+}
+.ios
+{
+  .header2 .btn-menu
+  {
+    top: 12px;
+  }
+  .header2 .btn-back
+  {
+    top: 13px;
+  }
+}
+.form
+{
+  padding: 0px 40px;
+  margin: auto;
+  display: block;
+}
+.item {
+  padding-left: 0;
+  background: none;
+}
+.item.item-block .item-inner {
+  border-bottom: 1px solid #332944;
+}
+.input-wrapper
+{
+  padding-left: 10px;
+}
+.label-primary, .item-input .label-primary, .item-select .label-primary, .item-datetime .label-primary {
+  color: #332944;
+}
+.in-label {
+  opacity: 0.6;
+}
+.scroll-content
+{
+  padding-bottom: 0 !important;
+}
+.header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios
+{
+  border:none;
+}
+.list-ios > .item-block:first-child {
+  border-top: 0;
+}
+.toolbar-ios {
+  height: 60px;
+}
+.relative
+{
+  position: relative;
+}
+.or
+{
+  width: 100%;
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0.7px;
+}
+.or:before
+{
+  content: "";
+  left: 0;
+  width: 45%;
+  top: 55%;
+  position: absolute;
+  border-top:1px solid map-get($colors, primary);
+}
+.or:after
+{
+  content: "";
+  right: 0;
+  width: 45%;
+  top: 55%;
+  position: absolute;
+  border-top:1px solid map-get($colors, primary);
+}
+.cc {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button[disabled] {
+  opacity: .7;
+}
+.label {
+  margin: 13px 8px;
+}
+.checkbox .checkbox-icon {
+  background-color: transparent;
+}
+.checkbox .checkbox-checked {
+  background-color: map-get($colors, primary);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button
+{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  margin:0;
+}
+.back-button
+{
+  display: none !important;
+}
+.nb-content
+{
+  background: none !important;
+}
+.npT{  padding-top: 0 !important }.nmT{  margin-top: 0 !important }.npB{  padding-bottom: 0 !important }.nmB{  margin-bottom: 0 !important }.npL{  padding-left: 0 !important }.nmL{  margin-left: 0 !important }.npR{  padding-right: 0 !important }.nmR{  margin-right: 0 !important }
+.block
+{
+  display: block !important;
+}
+.dk
+{
+  font-family: 'GeezaPro', sans-serif;
+}
+.black
+{
+  color: black !important;
+}
+.c-white
+{
+  color: white !important;
+}
+.ios
+{
+  .checkbox .checkbox-icon {
+    border-radius: 3px;
+    position: relative;
+    width: 18px;
+    height: 17px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #9b9aa2;
+  }
+  .checkbox .checkbox-checked .checkbox-inner {
+    left: 5px;
+    top: 1px;
+  }
+  .btn-switch__label_yes .icon {
+    display: inline-block;
+    font-size: 34px;
+    float: right;
+    height: 8px;
+    line-height: 7px;
+    margin-right: 1px;
+  }
+  .btn-switch__label_no .icon {
+    display: inline-block;
+    font-size: 32px;
+    float: left;
+    height: 8px;
+    line-height: 7px;
+    margin-left: 3px;
+  }
+  .checkbox .checkbox-checked {
+    border-color: #332944;
+  }
+}
+.header2.no-shadow, .ios .header2.no-shadow:before
+{
+  box-shadow: none !important;
+}
+.b-header
+{
+  padding: 20px;
+  background: #696648;
+  color: #fff;
+}
+textarea {
+  resize: none;
+}
+.footer-btn
+{
+  width: 100%;
+  height: 60px;
+  color: #fff;
+  background-color: #0f97b0;
+  letter-spacing: 0.4px;
+  font-size: 18px;
+  margin: 0;
+  margin-top: 32px;
+}
+.b-header
+{
+  .options
+  {
+    height: 80px;
+    .item
+    {
+      min-height: inherit;
+    }
+    .item.item-block .item-inner {
+      border-bottom: 1px solid #979797;
+    }
+    .item-input-has-focus .item-inner, .input-has-focus .item-inner {
+      border-bottom-color: #979797 !important;
+      -webkit-box-shadow: 0 -1px 0 0 #979797 inset !important;
+      box-shadow: 0 -1px 0 0 #979797 inset !important;
+    }
+    .list .item-input:last-child
+    {
+      border-bottom:0;
+    }
+    .list .item-input.item-input-has-focus:last-child, .list .item-input.input-has-focus:last-child
+    {
+      border-bottom-color: #979797 !important;
+    }
+    .input-wrapper
+    {
+      padding:0;
+    }
+    .text-input
+    {
+      color: #fff;
+      font-size: 18px;
+    }
+    .select-text
+    {
+      color: #fff;
+      float: left;
+    }
+    .item-select{
+      .item-inner
+      {
+        padding: 0;
+      }
+      .input-wrapper
+      {
+        display: block;
+      }
+    }
+    .select {
+      max-width: 100%;
+      padding: 3px 10px 4px 0px;
+      .select-icon .select-icon-inner {
+        left: 7px;
+        border-top: 8px solid;
+        border-right: 7px solid transparent;
+        border-left: 7px solid transparent;
+        color: #fff;
+      }
+    }
+    .text-input[type="search"]
+    {
+      margin: 3px 8px;
+    }
+    .label {
+      margin: 0px;
+      color: #fff;
+      .icon
+      {
+        width: 18px;
+        margin-top: 6px;
+      }
+    }
+    .in
+    {
+      position: relative;
+      height: 100%;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 100;
+    }
+    .in:before
+    {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 50%;
+      bottom: 0;
+      margin: auto;
+      background: #979797;
+      left: 0;
+      right: 0;
+    }
+    .actions
+    {
+      button
+      {
+        opacity: 0.6;
+      }
+      button.active
+      {
+        opacity: 1;
+      }
+    }
+  }
+}
+.item[no-icon] .item-inner
+{
+  background: none !important;
+}
+.toolbar-ios ion-title
+{
+  padding: 0;
+}
+.new-menu
+{
+  margin-bottom: 0;
+  padding-bottom: 0;
+  .item
+  {
+    box-shadow: 0 0 10px 3px rgba(0,0,0,0.25) inset;
+    height: 66px;
+    text-align: center;
+    .item-inner, .input-wrapper
+    {
+      padding: 0;
+      margin: 0;
+    }
+    img
+    {
+      width: 30px;
+      opacity: 0.5;
+      display: block;
+      margin: 0 auto 0 !important;
+      padding: 0;
+      max-width: 30px;
+      position: relative;
+    }
+    .label
+    {
+      margin: 0;
+    }
+  }
+  .item[name="home"]{
+    background: #b26087;
+  }
+  .item[name="payments"]{
+    background: #f0ecdf;
+  }
+  .item[name="messages"]{
+    background: #805aa1;
+  }
+  .item[name="documents"]{
+    background: #bd8025;
+  }
+  .item[name="dashboard"]{
+    background: #56636f;
+  }
+  .item[name="settings"]{
+    background: #b7ad72;
+  }
+  .item[name="profile"]{
+    background: #655973;
+  }
+  .item[name="notifications"]{
+    background: #a7c68c;
+  }
+  .item[name="invitations"]{
+    background: #c78d9f;
+  }
+  .item[name="logout"]{
+    background: #bec1c3;
+    margin-top: 40px;
+  }
+}
+@media (min-height: 661px){
+  .new-menu
+  {
+    .item[name="logout"]{
+      margin-top: 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+.other-icon .select-icon .select-icon-inner {
+  margin-top: 0;
+  left: 5px;
+  top: 3px;
+  width: 9px;
+  height: 9px;
+  border-width: 1px;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-style: solid;
+  border-color: #fff;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.invalid_input{
+  font-size:1em;
+  color:map_get($colors,danger);
+  font-weight:400;
+}
+
+.head-images{
+  img{
+    width:150px !important;
+    height:150px !important;
+  }
+}
+
+@import "../../node_modules/ionic2-auto-complete/auto-complete";
+.no-scroll .scroll-content{
+  overflow: hidden !important;
+}
+
+
+ion-header {
+  height: 70px !important;
+  padding-top: 10px;
+  .slider-bg {
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 0 1px #fff;
+    height: 120px;
+  }
+}
